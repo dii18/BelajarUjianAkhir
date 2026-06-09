@@ -3,1171 +3,1041 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UKT EACC4450 — Panduan Belajar Ujian Akhir</title>
+<title>UKT EACC4450 — Panduan Belajar Komprehensif</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=IBM+Plex+Mono:wght@400;600&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --ink: #1a1208;
-    --paper: #f5f0e8;
-    --cream: #ede6d3;
-    --gold: #b8860b;
-    --gold-light: #d4a017;
-    --rust: #8b3a0f;
-    --teal: #1a5f5a;
-    --teal-light: #2a8a82;
-    --muted: #6b5d4f;
-    --border: #c8b89a;
-    --highlight: #fff3cd;
-    --red: #7a1e1e;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    background: var(--paper);
-    color: var(--ink);
-    font-family: 'Source Serif 4', Georgia, serif;
-    font-size: 16px;
-    line-height: 1.7;
-  }
-
-  /* ── HEADER ─────────────────────────────────────── */
-  header {
-    background: var(--ink);
-    color: var(--paper);
-    padding: 3rem 2rem 2.5rem;
-    position: relative;
-    overflow: hidden;
-  }
-  header::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 30px,
-      rgba(184,134,11,0.06) 30px,
-      rgba(184,134,11,0.06) 31px
-    );
-  }
-  .header-inner {
-    max-width: 900px;
-    margin: 0 auto;
-    position: relative;
-  }
-  .badge {
-    display: inline-block;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold-light);
-    border: 1px solid var(--gold);
-    padding: 0.25rem 0.75rem;
-    margin-bottom: 1rem;
-  }
-  header h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 900;
-    line-height: 1.1;
-    color: var(--paper);
-    margin-bottom: 0.5rem;
-  }
-  header h1 span { color: var(--gold-light); }
-  .header-sub {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.8rem;
-    color: rgba(245,240,232,0.6);
-    letter-spacing: 0.05em;
-    margin-top: 0.75rem;
-  }
-  .header-meta {
-    display: flex;
-    gap: 2rem;
-    margin-top: 1.5rem;
-    flex-wrap: wrap;
-  }
-  .meta-item {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-  }
-  .meta-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--gold);
-  }
-  .meta-value {
-    font-size: 0.9rem;
-    color: rgba(245,240,232,0.85);
-  }
-
-  /* ── NAV ─────────────────────────────────────────── */
-  nav {
-    background: var(--ink);
-    border-top: 1px solid rgba(184,134,11,0.3);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  .nav-inner {
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-  .nav-inner::-webkit-scrollbar { display: none; }
-  .nav-btn {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: rgba(245,240,232,0.55);
-    padding: 0.8rem 1.2rem;
-    cursor: pointer;
-    border: none;
-    background: none;
-    white-space: nowrap;
-    transition: color 0.2s;
-    border-bottom: 2px solid transparent;
-  }
-  .nav-btn:hover, .nav-btn.active {
-    color: var(--gold-light);
-    border-bottom-color: var(--gold);
-  }
-
-  /* ── MAIN ────────────────────────────────────────── */
-  main {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 2rem 1.5rem 4rem;
-  }
-
-  /* sections */
-  .section { display: none; animation: fadeIn 0.3s ease; }
-  .section.active { display: block; }
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-
-  /* ── TYPOGRAPHY ──────────────────────────────────── */
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.9rem;
-    font-weight: 700;
-    color: var(--ink);
-    margin: 2rem 0 0.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--gold);
-  }
-  .chapter-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--teal);
-    margin: 2rem 0 0.75rem;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-  }
-  .chapter-title::before {
-    content: '';
-    display: inline-block;
-    width: 4px;
-    height: 1.3rem;
-    background: var(--teal);
-    border-radius: 2px;
-    flex-shrink: 0;
-  }
-  .sub-title {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--gold);
-    margin: 1.5rem 0 0.5rem;
-  }
-
-  p { margin-bottom: 0.8rem; }
-
-  /* ── CARDS ───────────────────────────────────────── */
-  .card {
-    background: white;
-    border: 1px solid var(--border);
-    border-left: 4px solid var(--teal);
-    padding: 1.25rem 1.5rem;
-    margin: 1rem 0;
-    border-radius: 0 4px 4px 0;
-  }
-  .card.gold { border-left-color: var(--gold); }
-  .card.rust { border-left-color: var(--rust); }
-  .card.red  { border-left-color: var(--red); }
-
-  .card-title {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--muted);
-    margin-bottom: 0.5rem;
-  }
-
-  /* ── KEY CONCEPTS GRID ───────────────────────────── */
-  .concept-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1rem;
-    margin: 1rem 0;
-  }
-  .concept-card {
-    background: white;
-    border: 1px solid var(--border);
-    padding: 1rem 1.25rem;
-    border-radius: 4px;
-    position: relative;
-    overflow: hidden;
-  }
-  .concept-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--teal), var(--gold));
-  }
-  .concept-card h4 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--teal);
-    margin-bottom: 0.4rem;
-  }
-  .concept-card p {
-    font-size: 0.88rem;
-    color: var(--muted);
-    margin: 0;
-    line-height: 1.5;
-  }
-
-  /* ── FORMULA BOX ─────────────────────────────────── */
-  .formula {
-    background: var(--ink);
-    color: var(--gold-light);
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.85rem;
-    padding: 1rem 1.5rem;
-    border-radius: 4px;
-    margin: 0.75rem 0;
-    line-height: 1.8;
-    overflow-x: auto;
-  }
-  .formula .comment { color: rgba(245,240,232,0.4); }
-
-  /* ── TABLE ───────────────────────────────────────── */
-  .tbl-wrap { overflow-x: auto; margin: 1rem 0; }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.9rem;
-    background: white;
-  }
-  th {
-    background: var(--ink);
-    color: var(--paper);
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    padding: 0.7rem 1rem;
-    text-align: left;
-  }
-  td {
-    padding: 0.65rem 1rem;
-    border-bottom: 1px solid var(--cream);
-    vertical-align: top;
-  }
-  tr:last-child td { border-bottom: none; }
-  tr:nth-child(even) td { background: var(--paper); }
-  tr:hover td { background: var(--highlight); }
-
-  /* ── SOAL / QUESTION CARD ────────────────────────── */
-  .soal-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    margin: 1.5rem 0;
-    overflow: hidden;
-  }
-  .soal-header {
-    background: var(--ink);
-    color: var(--paper);
-    padding: 0.75rem 1.25rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-  .soal-num {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--gold-light);
-  }
-  .soal-topic {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.7rem;
-    color: rgba(245,240,232,0.5);
-  }
-  .soal-body { padding: 1.25rem 1.5rem; }
-  .soal-body .q {
-    font-style: italic;
-    font-size: 0.95rem;
-    color: var(--ink);
-    padding: 0.75rem 1rem;
-    background: var(--paper);
-    border-left: 3px solid var(--gold);
-    margin-bottom: 1rem;
-    line-height: 1.65;
-  }
-
-  /* toggle answer */
-  .toggle-btn {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--teal);
-    background: none;
-    border: 1px solid var(--teal);
-    padding: 0.4rem 1rem;
-    cursor: pointer;
-    border-radius: 2px;
-    transition: all 0.2s;
-    margin-bottom: 0.75rem;
-  }
-  .toggle-btn:hover { background: var(--teal); color: white; }
-
-  .answer {
-    display: none;
-    border-top: 1px dashed var(--border);
-    padding-top: 1rem;
-    margin-top: 0.5rem;
-  }
-  .answer.open { display: block; animation: fadeIn 0.25s ease; }
-  .answer-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.68rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--gold);
-    margin-bottom: 0.5rem;
-  }
-  .answer ul, .answer ol {
-    padding-left: 1.5rem;
-    margin: 0.5rem 0;
-  }
-  .answer li { margin-bottom: 0.4rem; font-size: 0.92rem; }
-
-  /* ── HIGHLIGHT BOX ───────────────────────────────── */
-  .highlight-box {
-    background: var(--highlight);
-    border: 1px solid var(--gold);
-    border-radius: 4px;
-    padding: 1rem 1.25rem;
-    margin: 1rem 0;
-    font-size: 0.9rem;
-  }
-  .highlight-box strong { color: var(--rust); }
-
-  /* ── PILL TAGS ───────────────────────────────────── */
-  .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.5rem 0; }
-  .tag {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.68rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    padding: 0.2rem 0.6rem;
-    border-radius: 2px;
-    background: var(--cream);
-    color: var(--muted);
-    border: 1px solid var(--border);
-  }
-  .tag.teal { background: rgba(26,95,90,0.08); color: var(--teal); border-color: var(--teal-light); }
-  .tag.gold { background: rgba(184,134,11,0.1); color: var(--rust); border-color: var(--gold); }
-
-  /* ── PROGRESS/OVERVIEW ───────────────────────────── */
-  .overview-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 0.75rem;
-    margin: 1.5rem 0;
-  }
-  .ov-card {
-    background: white;
-    border: 1px solid var(--border);
-    padding: 1rem;
-    border-radius: 4px;
-    text-align: center;
-    cursor: pointer;
-    transition: border-color 0.2s, transform 0.15s;
-  }
-  .ov-card:hover { border-color: var(--teal); transform: translateY(-2px); }
-  .ov-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
-    font-weight: 900;
-    color: var(--teal);
-    line-height: 1;
-  }
-  .ov-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--muted);
-    margin-top: 0.3rem;
-  }
-
-  /* ── STEP LIST ───────────────────────────────────── */
-  .step-list { list-style: none; padding: 0; margin: 0.75rem 0; }
-  .step-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    padding: 0.6rem 0;
-    border-bottom: 1px dashed var(--cream);
-    font-size: 0.92rem;
-  }
-  .step-list li:last-child { border-bottom: none; }
-  .step-num {
-    flex-shrink: 0;
-    width: 1.6rem;
-    height: 1.6rem;
-    background: var(--teal);
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.72rem;
-    font-weight: 600;
-    margin-top: 0.1rem;
-  }
-
-  /* ── DIVIDER ─────────────────────────────────────── */
-  .divider {
-    border: none;
-    border-top: 1px solid var(--border);
-    margin: 2rem 0;
-  }
-
-  /* ── FOOTER ──────────────────────────────────────── */
-  footer {
-    background: var(--ink);
-    color: rgba(245,240,232,0.45);
-    text-align: center;
-    padding: 1.5rem;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.05em;
-  }
-
-  @media (max-width: 600px) {
-    main { padding: 1.5rem 1rem 3rem; }
-    .header-meta { gap: 1rem; }
-  }
+:root{--ink:#1a1208;--paper:#f5f0e8;--cream:#ede6d3;--gold:#b8860b;--goldl:#d4a017;--rust:#8b3a0f;--teal:#1a5f5a;--teall:#2a8a82;--muted:#6b5d4f;--border:#c8b89a;--hi:#fff3cd;--red:#7a1e1e;--green:#1a5a2a;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--paper);color:var(--ink);font-family:'Source Serif 4',Georgia,serif;font-size:16px;line-height:1.7;}
+/* HEADER */
+header{background:var(--ink);color:var(--paper);padding:3rem 2rem 2rem;position:relative;overflow:hidden;}
+header::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 30px,rgba(184,134,11,.05) 30px,rgba(184,134,11,.05) 31px);}
+.hi{max-width:960px;margin:0 auto;position:relative;}
+.badge{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--goldl);border:1px solid var(--gold);padding:.2rem .7rem;margin-bottom:.8rem;}
+header h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,5vw,3.2rem);font-weight:900;line-height:1.1;color:var(--paper);}
+header h1 span{color:var(--goldl);}
+.hsub{font-family:'IBM Plex Mono',monospace;font-size:.75rem;color:rgba(245,240,232,.55);letter-spacing:.05em;margin-top:.5rem;}
+.hmeta{display:flex;gap:1.5rem;margin-top:1.2rem;flex-wrap:wrap;}
+.mi{display:flex;flex-direction:column;gap:.15rem;}
+.ml{font-family:'IBM Plex Mono',monospace;font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);}
+.mv{font-size:.85rem;color:rgba(245,240,232,.8);}
+/* NAV */
+nav{background:var(--ink);border-top:1px solid rgba(184,134,11,.25);position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.3);}
+.ni{max-width:960px;margin:0 auto;display:flex;overflow-x:auto;scrollbar-width:none;}
+.ni::-webkit-scrollbar{display:none;}
+.nb{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;color:rgba(245,240,232,.45);padding:.75rem 1rem;cursor:pointer;border:none;background:none;white-space:nowrap;transition:color .2s;border-bottom:2px solid transparent;flex-shrink:0;}
+.nb:hover,.nb.active{color:var(--goldl);border-bottom-color:var(--gold);}
+/* MAIN */
+main{max-width:960px;margin:0 auto;padding:2rem 1.5rem 5rem;}
+.sec{display:none;animation:fi .3s ease;}
+.sec.active{display:block;}
+@keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+/* TYPOGRAPHY */
+.st{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--ink);margin:2rem 0 .4rem;padding-bottom:.4rem;border-bottom:2px solid var(--gold);}
+.ct{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--teal);margin:1.8rem 0 .6rem;display:flex;align-items:center;gap:.5rem;}
+.ct::before{content:'';display:inline-block;width:4px;height:1.1rem;background:var(--teal);border-radius:2px;flex-shrink:0;}
+.sub{font-family:'IBM Plex Mono',monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin:1.2rem 0 .4rem;}
+p{margin-bottom:.75rem;}
+/* CARDS */
+.card{background:#fff;border:1px solid var(--border);border-left:4px solid var(--teal);padding:1.1rem 1.4rem;margin:.8rem 0;border-radius:0 4px 4px 0;}
+.card.gold{border-left-color:var(--gold);}
+.card.rust{border-left-color:var(--rust);}
+.card.green{border-left-color:var(--green);}
+.card.red{border-left-color:var(--red);}
+.ct2{font-family:'IBM Plex Mono',monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:.4rem;}
+/* CONCEPT GRID */
+.cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.8rem;margin:.8rem 0;}
+.cc{background:#fff;border:1px solid var(--border);padding:.9rem 1.1rem;border-radius:4px;position:relative;overflow:hidden;}
+.cc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--gold));}
+.cc h4{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:var(--teal);margin-bottom:.3rem;}
+.cc p{font-size:.84rem;color:var(--muted);margin:0;line-height:1.5;}
+/* FORMULA */
+.fm{background:var(--ink);color:var(--goldl);font-family:'IBM Plex Mono',monospace;font-size:.82rem;padding:.9rem 1.3rem;border-radius:4px;margin:.6rem 0;line-height:1.9;overflow-x:auto;white-space:pre;}
+.fm .cm{color:rgba(245,240,232,.38);}
+/* TABLE */
+.tw{overflow-x:auto;margin:.8rem 0;}
+table{width:100%;border-collapse:collapse;font-size:.88rem;background:#fff;}
+th{background:var(--ink);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:.07em;padding:.65rem .9rem;text-align:left;}
+td{padding:.6rem .9rem;border-bottom:1px solid var(--cream);vertical-align:top;}
+tr:last-child td{border-bottom:none;}
+tr:nth-child(even) td{background:var(--paper);}
+tr:hover td{background:var(--hi);}
+/* SOAL CARD */
+.sc{background:#fff;border:1px solid var(--border);border-radius:4px;margin:1.2rem 0;overflow:hidden;}
+.sh{background:var(--ink);color:var(--paper);padding:.65rem 1.1rem;display:flex;align-items:center;justify-content:space-between;gap:.8rem;flex-wrap:wrap;}
+.sn{font-family:'IBM Plex Mono',monospace;font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--goldl);}
+.st2{font-family:'IBM Plex Mono',monospace;font-size:.65rem;color:rgba(245,240,232,.45);}
+.sb{padding:1.1rem 1.3rem;}
+.q{font-style:italic;font-size:.92rem;color:var(--ink);padding:.7rem .9rem;background:var(--paper);border-left:3px solid var(--gold);margin-bottom:.9rem;line-height:1.65;}
+.tb{font-family:'IBM Plex Mono',monospace;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--teal);background:none;border:1px solid var(--teal);padding:.35rem .9rem;cursor:pointer;border-radius:2px;transition:all .2s;margin-bottom:.6rem;}
+.tb:hover{background:var(--teal);color:#fff;}
+.an{display:none;border-top:1px dashed var(--border);padding-top:.9rem;margin-top:.4rem;}
+.an.open{display:block;animation:fi .2s ease;}
+.al{font-family:'IBM Plex Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:.4rem;}
+.an ul,.an ol{padding-left:1.4rem;margin:.4rem 0;}
+.an li{margin-bottom:.35rem;font-size:.9rem;}
+/* HIGHLIGHT */
+.hb{background:var(--hi);border:1px solid var(--gold);border-radius:4px;padding:.9rem 1.1rem;margin:.8rem 0;font-size:.88rem;}
+.hb strong{color:var(--rust);}
+.hb.green{background:#e8f5e9;border-color:var(--green);}
+.hb.red{background:#fdecea;border-color:var(--red);}
+/* TAGS */
+.tags{display:flex;flex-wrap:wrap;gap:.35rem;margin:.4rem 0 .8rem;}
+.tag{font-family:'IBM Plex Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:.06em;padding:.18rem .55rem;border-radius:2px;background:var(--cream);color:var(--muted);border:1px solid var(--border);}
+.tag.t{background:rgba(26,95,90,.07);color:var(--teal);border-color:var(--teall);}
+.tag.g{background:rgba(184,134,11,.09);color:var(--rust);border-color:var(--gold);}
+/* OVERVIEW */
+.og{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.65rem;margin:1.2rem 0;}
+.oc{background:#fff;border:1px solid var(--border);padding:.9rem;border-radius:4px;text-align:center;cursor:pointer;transition:border-color .2s,transform .15s;}
+.oc:hover{border-color:var(--teal);transform:translateY(-2px);}
+.on{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--teal);line-height:1;}
+.ol{font-family:'IBM Plex Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-top:.25rem;}
+/* STEPS */
+.sl{list-style:none;padding:0;margin:.6rem 0;}
+.sl li{display:flex;align-items:flex-start;gap:.9rem;padding:.55rem 0;border-bottom:1px dashed var(--cream);font-size:.9rem;}
+.sl li:last-child{border-bottom:none;}
+.sn2{flex-shrink:0;width:1.5rem;height:1.5rem;background:var(--teal);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:.68rem;font-weight:600;margin-top:.1rem;}
+/* ESSAY TEMPLATE */
+.et{background:#fff;border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1rem 0;}
+.eh{background:var(--teal);color:#fff;padding:.6rem 1.1rem;font-family:'IBM Plex Mono',monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;}
+.eb Img{margin-bottom:.6rem;}
+/* RUBRIK */
+.rg{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.6rem;margin:.8rem 0;}
+.rc{border:1px solid var(--border);border-radius:4px;overflow:hidden;}
+.rh{padding:.5rem .8rem;font-family:'IBM Plex Mono',monospace;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:#fff;text-align:center;}
+.rh.a{background:#1a5a2a;}
+.rh.b{background:#2a6a8a;}
+.rh.c{background:#8a6a1a;}
+.rh.d{background:#7a2a1a;}
+.rb{padding:.7rem .8rem;font-size:.8rem;color:var(--muted);}
+/* CHEATSHEET */
+.cheat{background:var(--ink);color:var(--paper);border-radius:4px;padding:1.2rem 1.5rem;margin:.8rem 0;}
+.cheat h4{font-family:'IBM Plex Mono',monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--goldl);margin-bottom:.6rem;}
+.cheat p,.cheat li{font-size:.85rem;color:rgba(245,240,232,.8);line-height:1.6;}
+.cheat ul{padding-left:1.2rem;}
+/* TIMER */
+.timer-box{background:#fff;border:2px solid var(--teal);border-radius:8px;padding:1.2rem;margin:1rem 0;text-align:center;}
+.timer-display{font-family:'IBM Plex Mono',monospace;font-size:3rem;font-weight:600;color:var(--teal);line-height:1;}
+.timer-label{font-family:'IBM Plex Mono',monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:.3rem;}
+.timer-btns{display:flex;gap:.5rem;justify-content:center;margin-top:.8rem;flex-wrap:wrap;}
+.tbtn{font-family:'IBM Plex Mono',monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;padding:.4rem 1rem;border:1px solid var(--teal);background:none;color:var(--teal);cursor:pointer;border-radius:2px;transition:all .2s;}
+.tbtn:hover{background:var(--teal);color:#fff;}
+.tbtn.start{background:var(--teal);color:#fff;}
+.tbtn.start:hover{background:var(--teall);}
+.tbtn.danger{border-color:var(--red);color:var(--red);}
+.tbtn.danger:hover{background:var(--red);color:#fff;}
+/* DIFFICULTY BADGE */
+.diff{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:.6rem;text-transform:uppercase;letter-spacing:.08em;padding:.15rem .5rem;border-radius:2px;margin-left:.5rem;}
+.diff.c2{background:rgba(26,90,42,.12);color:var(--green);}
+.diff.c3{background:rgba(26,95,90,.12);color:var(--teal);}
+.diff.c4{background:rgba(139,58,15,.12);color:var(--rust);}
+.diff.int{background:rgba(184,134,11,.15);color:var(--gold);}
+/* QUICK REF */
+.qr{background:var(--ink);border-radius:4px;padding:1rem 1.3rem;margin:.6rem 0;}
+.qr h4{font-family:'IBM Plex Mono',monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--goldl);margin-bottom:.5rem;}
+.qr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.8rem;}
+.qr-item{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:rgba(245,240,232,.75);line-height:1.6;}
+.qr-item strong{color:var(--goldl);}
+/* PEMULA EXTRA STYLE */
+.cl-item{display:flex;align-items:center;gap:.7rem;background:#fff;padding:.6rem 1rem;border:1px solid var(--border);border-radius:4px;margin-bottom:.4rem;font-size:.9rem;}
+.cl-item input{width:16px;height:16px;cursor:pointer;}
+/* DIVIDER */
+hr{border:none;border-top:1px solid var(--border);margin:1.8rem 0;}
+footer{background:var(--ink);color:rgba(245,240,232,.35);text-align:center;padding:1.2rem;font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.05em;}
+@media(max-width:600px){main{padding:1.2rem .9rem 3rem;}.hmeta{gap:.8rem;}}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="header-inner">
-    <div class="badge">Panduan Ujian Akhir Semester</div>
-    <h1>UKT <span>EACC4450</span></h1>
-    <p style="color:rgba(245,240,232,0.75); font-size:1.05rem; margin-top:0.3rem;">Ujian Komprehensif Tertulis — Program Studi S1 Akuntansi</p>
-    <div class="header-sub">Universitas Terbuka &nbsp;·&nbsp; 6 SKS &nbsp;·&nbsp; Rangkuman + Contoh Soal Esai</div>
-    <div class="header-meta">
-      <div class="meta-item"><span class="meta-label">Topik</span><span class="meta-value">8 Pertemuan Tutorial</span></div>
-      <div class="meta-item"><span class="meta-label">Referensi</span><span class="meta-value">BMP UT + SAT/RAT 2025</span></div>
-      <div class="meta-item"><span class="meta-label">Format Ujian</span><span class="meta-value">Esai Analitis</span></div>
-    </div>
+<div class="hi">
+  <div class="badge">Panduan Belajar Ujian Akhir Semester — Versi Lengkap</div>
+  <h1>UKT <span>EACC4450</span></h1>
+  <p style="color:rgba(245,240,232,.7);font-size:1rem;margin-top:.3rem;">Ujian Komprehensif Tertulis — S1 Akuntansi Universitas Terbuka</p>
+  <div class="hsub">Berdasarkan RPS 2026 · RAT/SAT 2025 · 8 Pertemuan Tutorial · 6 SKS</div>
+  <div class="hmeta">
+    <div class="mi"><span class="ml">Sub-CPMK</span><span class="mv">6 Kompetensi Utama</span></div>
+    <div class="mi"><span class="ml">BMP Rujukan</span><span class="mv">8 Mata Kuliah Prasyarat</span></div>
+    <div class="mi"><span class="ml">Bank Soal</span><span class="mv">40+ Soal Esai Berlevel</span></div>
+    <div class="mi"><span class="ml">Fitur</span><span class="mv">Timer · Rubrik · Full Essay</span></div>
   </div>
+</div>
 </header>
 
 <nav>
-  <div class="nav-inner">
-    <button class="nav-btn active" onclick="show('overview', this)">Peta Belajar</button>
-    <button class="nav-btn" onclick="show('ppn', this)">PPN & PPnBM</button>
-    <button class="nav-btn" onclick="show('persediaan', this)">Persediaan</button>
-    <button class="nav-btn" onclick="show('audit', this)">Audit</button>
-    <button class="nav-btn" onclick="show('akm2', this)">AKM II</button>
-    <button class="nav-btn" onclick="show('manajemen', this)">Akun. Manajemen</button>
-    <button class="nav-btn" onclick="show('sia', this)">SIA</button>
-    <button class="nav-btn" onclick="show('etika', this)">Etika</button>
-    <button class="nav-btn" onclick="show('soal', this)">Bank Soal Esai</button>
-  </div>
+<div class="ni">
+  <button class="nb active" onclick="show('pemula',this)">🚀 Jalur Pemula</button>
+  <button class="nb" onclick="show('overview',this)">🗺 Peta Belajar</button>
+  <button class="nb" onclick="show('howto',this)">✍ Cara Esai</button>
+  <button class="nb" onclick="show('ppn',this)">PPN & PPnBM</button>
+  <button class="nb" onclick="show('persediaan',this)">Persediaan</button>
+  <button class="nb" onclick="show('audit',this)">Audit & LAI</button>
+  <button class="nb" onclick="show('akm2',this)">AKM II</button>
+  <button class="nb" onclick="show('manajemen',this)">Akun. Manajemen</button>
+  <button class="nb" onclick="show('sia',this)">SIA</button>
+  <button class="nb" onclick="show('etika',this)">Etika</button>
+  <button class="nb" onclick="show('soal',this)">📝 Bank Soal</button>
+  <button class="nb" onclick="show('cheat',this)">⚡ Quick Ref</button>
+  <button class="nb" onclick="show('timer',this)">⏱ Timer Latihan</button>
+</div>
 </nav>
 
 <main>
 
-<!-- ═══════════════════════════════════════════════════ OVERVIEW -->
-<div id="overview" class="section active">
-  <div class="section-title">Peta Belajar UAS</div>
-  <p>Berdasarkan RAT, SAT, dan RPS EACC4450, ujian akhir semester menguji kemampuan integratif dari <strong>8 pertemuan tutorial</strong> yang mencakup berbagai mata kuliah akuntansi secara komprehensif.</p>
-
-  <div class="overview-grid">
-    <div class="ov-card" onclick="show('ppn', document.querySelectorAll('.nav-btn')[1])">
-      <div class="ov-num">01</div>
-      <div class="ov-label">PPN & PPnBM</div>
-    </div>
-    <div class="ov-card" onclick="show('persediaan', document.querySelectorAll('.nav-btn')[2])">
-      <div class="ov-num">02</div>
-      <div class="ov-label">Persediaan</div>
-    </div>
-    <div class="ov-card" onclick="show('audit', document.querySelectorAll('.nav-btn')[3])">
-      <div class="ov-num">03</div>
-      <div class="ov-label">Audit</div>
-    </div>
-    <div class="ov-card" onclick="show('akm2', document.querySelectorAll('.nav-btn')[4])">
-      <div class="ov-num">04</div>
-      <div class="ov-label">AKM II</div>
-    </div>
-    <div class="ov-card" onclick="show('manajemen', document.querySelectorAll('.nav-btn')[5])">
-      <div class="ov-num">05</div>
-      <div class="ov-label">Akun. Manajemen</div>
-    </div>
-    <div class="ov-card" onclick="show('sia', document.querySelectorAll('.nav-btn')[6])">
-      <div class="ov-num">06</div>
-      <div class="ov-label">SIA Siklus Pengeluaran</div>
-    </div>
-    <div class="ov-card" onclick="show('etika', document.querySelectorAll('.nav-btn')[7])">
-      <div class="ov-num">07</div>
-      <div class="ov-label">Etika Profesi</div>
-    </div>
-    <div class="ov-card" onclick="show('soal', document.querySelectorAll('.nav-btn')[8])">
-      <div class="ov-num">★</div>
-      <div class="ov-label">Bank Soal Esai</div>
-    </div>
-  </div>
-
-  <div class="chapter-title">Referensi BMP yang Digunakan</div>
-  <div class="tbl-wrap">
-    <table>
-      <tr><th>Pertemuan</th><th>Topik</th><th>BMP Referensi</th><th>Tugas Tutorial</th></tr>
-      <tr><td>1 & 4</td><td>PPN & PPnBM</td><td>BMP Perpajakan</td><td>Tugas 1</td></tr>
-      <tr><td>2</td><td>Metode Kos Persediaan</td><td>BMP Akuntansi Keuangan Menengah I</td><td>Tugas 1</td></tr>
-      <tr><td>3</td><td>Bukti Audit & LAI</td><td>BMP Auditing I</td><td>Tugas 1</td></tr>
-      <tr><td>4</td><td>Pengungkapan Laporan Keuangan</td><td>BMP Akuntansi Keuangan Menengah II</td><td>—</td></tr>
-      <tr><td>5</td><td>Analisis CVP & BEP</td><td>BMP Akuntansi Manajemen</td><td>Tugas 2</td></tr>
-      <tr><td>6</td><td>Activity Based Costing</td><td>BMP Akuntansi Biaya Modul 9</td><td>Tugas 3</td></tr>
-      <tr><td>7</td><td>Siklus Pengeluaran (SIA)</td><td>BMP SIA Modul 6</td><td>Tugas 3</td></tr>
-      <tr><td>8</td><td>Kode Etik Akuntan Indonesia</td><td>BMP Etika & Anti Korupsi + KEPAP IAI 2024</td><td>Tugas 3</td></tr>
-    </table>
-  </div>
-
-  <div class="chapter-title">Tips Menjawab Soal Esai UAS</div>
-  <ul class="step-list">
-    <li><span class="step-num">1</span><div>Selalu <strong>sebutkan dasar hukum atau PSAK yang relevan</strong> dalam setiap jawaban — ini yang membedakan jawaban biasa dari jawaban ilmiah.</div></li>
-    <li><span class="step-num">2</span><div>Struktur jawaban: <strong>Definisi → Dasar Hukum/Teori → Analisis Kasus → Kesimpulan</strong>.</div></li>
-    <li><span class="step-num">3</span><div>Untuk soal hitungan, selalu tampilkan <strong>langkah demi langkah</strong> dan sertakan verifikasi hasil.</div></li>
-    <li><span class="step-num">4</span><div>Untuk soal analitis/etika, gunakan <strong>framework yang jelas</strong> (misalnya KEPAP untuk etika, SA untuk audit).</div></li>
-    <li><span class="step-num">5</span><div>Jangan lupa dimensi <strong>integratif</strong> — UKT sering menggabungkan beberapa topik dalam satu kasus.</div></li>
-  </ul>
-</div>
-
-<!-- ═══════════════════════════════════════════════════ PPN -->
-<div id="ppn" class="section">
-  <div class="section-title">Pajak Pertambahan Nilai (PPN) & PPnBM</div>
-  <div class="tags"><span class="tag teal">BMP Perpajakan</span><span class="tag gold">UU PPN No.42/2009</span><span class="tag gold">UU HPP No.7/2021</span><span class="tag gold">PMK 131/2024</span></div>
-
-  <div class="chapter-title">Konsep Dasar PPN</div>
-  <div class="concept-grid">
-    <div class="concept-card">
-      <h4>Objek PPN</h4>
-      <p>Penyerahan BKP/JKP di dalam daerah pabean, impor BKP, ekspor BKP/JKP, dan pemanfaatan BKP tidak berwujud/JKP dari luar daerah pabean.</p>
-    </div>
-    <div class="concept-card">
-      <h4>Tarif PPN 2024–2025</h4>
-      <p>Tarif efektif 11% untuk barang/jasa umum (PMK 131/2024). Tarif 0% untuk ekspor BKP/JKP. Tarif 12% khusus barang mewah.</p>
-    </div>
-    <div class="concept-card">
-      <h4>DPP Nilai Lain (11/12)</h4>
-      <p>Digunakan ketika harga sudah termasuk PPN atau untuk penyerahan cuma-cuma/pemakaian sendiri. DPP = 11/12 × harga (PMK 75/2010).</p>
-    </div>
-    <div class="concept-card">
-      <h4>PM Tidak Dapat Dikreditkan</h4>
-      <p>PM untuk perolehan BKP/JKP yang tidak berhubungan dengan kegiatan usaha atau untuk kepentingan pribadi pengurus/keluarga (Pasal 9 ayat 8).</p>
-    </div>
-  </div>
-
-  <div class="chapter-title">Mekanisme PPN</div>
-  <div class="formula">
-PPN Kurang/Lebih Bayar = Pajak Keluaran (PK) − Pajak Masukan (PM)
-
-<span class="comment">Pajak Keluaran = 11% × DPP (atas penyerahan BKP/JKP)</span>
-<span class="comment">Pajak Masukan = PPN yang dibayar atas perolehan BKP/JKP</span>
-<span class="comment">Jika PK > PM → Kurang Bayar (disetor ke negara)</span>
-<span class="comment">Jika PK < PM → Lebih Bayar (dapat direstitusi/dikompensasi)</span>
-
-<span class="comment">DPP Nilai Lain  = 11/12 × Harga Jual (harga sudah termasuk PPN)</span>
-<span class="comment">DPP Impor       = CIF + Bea Masuk + Pungutan lainnya</span>
-  </div>
-
-  <div class="chapter-title">Perlakuan Khusus Transaksi</div>
-  <div class="tbl-wrap">
-    <table>
-      <tr><th>Jenis Transaksi</th><th>PPN</th><th>Keterangan</th></tr>
-      <tr><td>Ekspor BKP</td><td>0%</td><td>Pasal 7 ayat 2 UU PPN</td></tr>
-      <tr><td>Penyerahan ke cabang PKP berbeda</td><td>11%</td><td>Dianggap penyerahan antar PKP</td></tr>
-      <tr><td>Penyerahan ke cabang satu PKP</td><td>Tidak terutang</td><td>Hanya pemindahan internal</td></tr>
-      <tr><td>Konsinyasi</td><td>11% saat terjual ke pembeli akhir</td><td>Bukan saat diserahkan ke konsignee</td></tr>
-      <tr><td>Pemakaian sendiri/cuma-cuma</td><td>11% × DPP Nilai Lain</td><td>DPP = 11/12 × harga jual</td></tr>
-      <tr><td>Impor BKP</td><td>11% × Nilai Impor</td><td>Nilai Impor = CIF + Bea Masuk</td></tr>
-      <tr><td>Jasa keuangan (DN)</td><td>Dikecualikan</td><td>Pasal 4A UU PPN</td></tr>
-      <tr><td>JKP dari luar negeri (dimanfaatkan DN)</td><td>11% self-assessed</td><td>Pasal 4 ayat 1 huruf e</td></tr>
-    </table>
-  </div>
-
-  <div class="highlight-box">
-    <strong>Ingat:</strong> DPP Nilai Lain (11/12) HANYA digunakan ketika harga sudah termasuk PPN atau untuk transaksi cuma-cuma/pemakaian sendiri. Selalu sebutkan dasar PMK 75/2010 saat menggunakannya.
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════════════════ PERSEDIAAN -->
-<div id="persediaan" class="section">
-  <div class="section-title">Akuntansi Persediaan</div>
-  <div class="tags"><span class="tag teal">BMP AKM I</span><span class="tag gold">PSAK 14</span></div>
-
-  <div class="chapter-title">Metode Pencatatan Persediaan</div>
-  <div class="tbl-wrap">
-    <table>
-      <tr><th>Metode</th><th>Karakteristik</th><th>Keunggulan</th></tr>
-      <tr><td><strong>FIFO</strong></td><td>Barang masuk pertama, keluar pertama. Cocok untuk produk yang cepat usang/kadaluarsa.</td><td>Nilai persediaan akhir mendekati harga terkini; relevan untuk produk teknologi</td></tr>
-      <tr><td><strong>Average (Rata-rata)</strong></td><td>HPP dihitung berdasarkan rata-rata tertimbang biaya perolehan</td><td>Lebih stabil, tidak sensitif terhadap perubahan harga</td></tr>
-      <tr><td><strong>Identifikasi Khusus</strong></td><td>Setiap unit dilacak secara individual. Digunakan untuk persediaan unik/tidak dapat dipertukarkan.</td><td>Paling akurat; sesuai PSAK 14 untuk barang yang tidak dapat dipertukarkan</td></tr>
-    </table>
-  </div>
-
-  <div class="highlight-box"><strong>PSAK 14:</strong> LIFO tidak diperkenankan dalam SAK Indonesia (sesuai konvergensi IFRS). Pilihan hanya FIFO atau Average.</div>
-
-  <div class="chapter-title">FIFO Perpetual — Langkah-langkah</div>
-  <ul class="step-list">
-    <li><span class="step-num">1</span><div>Catat persediaan awal dengan harga perolehan masing-masing layer.</div></li>
-    <li><span class="step-num">2</span><div>Setiap pembelian: tambah layer baru dengan harga dan kuantitas baru.</div></li>
-    <li><span class="step-num">3</span><div>Setiap penjualan: keluarkan dari layer paling lama terlebih dahulu (FIFO).</div></li>
-    <li><span class="step-num">4</span><div>Retur pembelian: kurangi dari layer yang sesuai. Retur penjualan: kembalikan ke persediaan dengan HPP asal.</div></li>
-    <li><span class="step-num">5</span><div>Write-off barang rusak: debit Kerugian Penurunan Nilai Persediaan, kredit Persediaan (HPP asal).</div></li>
-  </ul>
-
-  <div class="chapter-title">Jurnal Penting Persediaan</div>
-  <div class="formula">
-Pembelian tunai:
-  Persediaan          xxx
-      Kas                     xxx
-
-Penjualan (2 jurnal):
-  Kas/Piutang         xxx        → harga jual
-      Penjualan               xxx
-  HPP                 xxx        → harga pokok
-      Persediaan              xxx
-
-Retur Penjualan:
-  Retur & Pot. Penjualan  xxx   → harga jual
-      Kas/Piutang                 xxx
-  Persediaan              xxx   → HPP asal
-      HPP                         xxx
-
-Write-off Rusak:
-  Kerugian Penurunan Nilai Persediaan  xxx
-      Persediaan                               xxx
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════════════════ AUDIT -->
-<div id="audit" class="section">
-  <div class="section-title">Auditing & Laporan Auditor Independen</div>
-  <div class="tags"><span class="tag teal">BMP Auditing I</span><span class="tag gold">SA 500, 505, 700, 705</span><span class="tag gold">SPAP IAPI</span></div>
-
-  <div class="chapter-title">Jenis Bukti Audit (SA 500)</div>
-  <div class="tbl-wrap">
-    <table>
-      <tr><th>Jenis Bukti</th><th>Deskripsi</th><th>Contoh</th></tr>
-      <tr><td>Bukti Fisik</td><td>Diperoleh melalui observasi langsung auditor</td><td>Stock opname, inspeksi aset tetap</td></tr>
-      <tr><td>Bukti Dokumenter</td><td>Dokumen tertulis internal/eksternal</td><td>Kontrak, faktur, PO, RR</td></tr>
-      <tr><td>Konfirmasi Eksternal</td><td>Respons tertulis pihak ketiga (SA 505)</td><td>Konfirmasi saldo piutang ke debitur</td></tr>
-      <tr><td>Prosedur Analitis</td><td>Evaluasi informasi keuangan melalui analisis hubungan</td><td>Perbandingan rasio antar periode</td></tr>
-      <tr><td>Inquiry & Representasi</td><td>Wawancara + Surat Representasi Manajemen (SA 580)</td><td>Wawancara CFO, konsultan hukum</td></tr>
-      <tr><td>Recalculation</td><td>Penghitungan ulang oleh auditor</td><td>Hitung ulang amortisasi, pajak tangguhan</td></tr>
-    </table>
-  </div>
-
-  <div class="chapter-title">Jenis Opini Audit (SA 705)</div>
-  <div class="tbl-wrap">
-    <table>
-      <tr><th>Opini</th><th>Kondisi</th></tr>
-      <tr><td><strong>Wajar Tanpa Pengecualian (WTP)</strong></td><td>Laporan keuangan bebas salah saji material; bukti audit cukup dan tepat</td></tr>
-      <tr><td><strong>Wajar Dengan Pengecualian (WDP)</strong></td><td>Salah saji material TAPI tidak pervasif; atau keterbatasan ruang lingkup yang tidak pervasif</td></tr>
-      <tr><td><strong>Tidak Wajar (Adverse)</strong></td><td>Salah saji material DAN pervasif — mempengaruhi keseluruhan laporan keuangan</td></tr>
-      <tr><td><strong>Tidak Memberikan Opini (Disclaimer)</strong></td><td>Keterbatasan ruang lingkup yang material DAN pervasif; atau keraguan going concern yang signifikan</td></tr>
-    </table>
-  </div>
-
-  <div class="chapter-title">Format LAI — Tiga Paragraf Utama</div>
+<!-- ══════════════════════ NEW: JALUR PEMULA ══════════════════════ -->
+<div id="pemula" class="sec active">
+  <div class="st">Selamat Datang! Mulai dari Sini Pas Belajar</div>
+  <p>Jangan panik dulu melihat banyaknya rumus di tab lain. UKT (Ujian Komprehensif Tertulis) itu intinya menguji materi kuliah yang sudah pernah kamu lewati. Biar gak pusing, ikuti peta alur belajar di bawah ini.</p>
+  
+  <div class="ct">1. Rekomendasi Alur Belajar (Urutan dari Termudah)</div>
   <div class="card gold">
-    <div class="card-title">Paragraf Pengantar</div>
-    Menyatakan apa yang telah diaudit, periode audit, dan tanggung jawab manajemen vs auditor.
-  </div>
-  <div class="card">
-    <div class="card-title">Paragraf Lingkup</div>
-    Menyatakan standar audit yang digunakan (SPAP/ISA), prosedur yang dilaksanakan, dan pernyataan bahwa audit memberikan dasar memadai untuk opini.
-  </div>
-  <div class="card rust">
-    <div class="card-title">Paragraf Pendapat</div>
-    Menyatakan opini auditor atas kewajaran penyajian laporan keuangan. Jika WDP/Adverse, tambahkan paragraf "Dasar Opini Modifikasi" sebelum paragraf pendapat.
+    <p>Disarankan mempelajari materi dengan urutan di bawah ini agar logika akuntansimu terbangun runtut tanpa bikin otak korsleting:</p>
+    <ol style="padding-left: 1.5rem; margin-top: 0.5rem;">
+      <li><strong>Etika Profesi:</strong> Logika murni, hafalan ringan, sanksi sosial & hukum (Paling gampang dipahami).</li>
+      <li><strong>SIA (Sistem Informasi Akuntansi):</strong> Belajar alur dokumen belanja & bayar hutang (Bentuk bagan/logika cerita).</li>
+      <li><strong>Cara Esai:</strong> Kuasai cara menjawab soal biar gak kehilangan poin penting saat nulis jawaban nanti.</li>
+      <li><strong>Persediaan & PPN:</strong> Mulai masuk ke hitung-hitungan dasar akuntansi keuangan & perpajakan Indonesia.</li>
+      <li><strong>Audit & AKM II:</strong> Materi kelas berat (Revaluasi Aset & Menentukan Opini Laporan Keuangan).</li>
+      <li><strong>Akuntansi Manajemen:</strong> Analisis keputusan bisnis tingkat manajer (BEP & ABC).</li>
+    </ol>
   </div>
 
-  <div class="chapter-title">Ancaman Independensi Auditor</div>
-  <div class="tbl-wrap">
-    <table>
-      <tr><th>Jenis Ancaman</th><th>Contoh</th><th>Safeguard</th></tr>
-      <tr><td>Self-Interest</td><td>KAP terlalu bergantung pendapatan dari satu klien (&gt;20%)</td><td>Rotasi partner; second review; pertimbangkan mundur</td></tr>
-      <tr><td>Intimidation</td><td>Klien ancam ganti auditor jika opini tidak WTP</td><td>Dokumentasi tekanan; lapor ke Komite Audit (SA 260)</td></tr>
-      <tr><td>Self-Review</td><td>KAP audit sekaligus berikan jasa konsultasi ke klien yang sama</td><td>Tolak jasa non-audit material; pisahkan tim</td></tr>
-    </table>
-  </div>
+  <div class="ct">2. Kamus Istilah Kilat (Biar Gak Bingung Baca Materi)</div>
+  <div class="tw"><table>
+    <tr><th>Istilah</th><th>Artinya Apa Sih?</th><th>Dipakai di Bab</th></tr>
+    <tr><td><strong>PSAK</strong></td><td>Pernyataan Standar Akuntansi Keuangan (Buku suci/aturan resmi akuntan di Indonesia).</td><td>Semua Bab Keuangan</td></tr>
+    <tr><td><strong>DPP</strong></td><td>Dasar Pengenaan Pajak (Nilai bersih suatu barang sebelum ditambah/dihitung pajaknya).</td><td>PPN & PPnBM</td></tr>
+    <tr><td><strong>PK / PM</strong></td><td>Pajak Keluaran (Pajak saat kita jual barang) / Pajak Masukan (Pajak saat kita beli barang).</td><td>PPN & PPnBM</td></tr>
+    <tr><td><strong>HPP</strong></td><td>Harga Pokok Penjualan (Modal asli barang yang berhasil dijual).</td><td>Persediaan</td></tr>
+    <tr><td><strong>LAI / SPAP</strong></td><td>Laporan Auditor Independen / Standar Profesional Akuntan Publik (Aturan kerja auditor).</td><td>Audit</td></tr>
+    <tr><td><strong>WTP / WDP</strong></td><td>Wajar Tanpa Pengecualian (Bagus banget) / Wajar Dengan Pengecualian (Ada salah saji dikit).</td><td>Audit</td></tr>
+    <tr><td><strong>OCI</strong></td><td>Other Comprehensive Income (Tempat parkir laba/rugi yang sifatnya belum final, misal hasil revaluasi).</td><td>AKM II</td></tr>
+    <tr><td><strong>BEP</strong></td><td>Break Even Point (Kondisi balik modal, gak untung dan gak rugi).</td><td>Akun. Manajemen</td></tr>
+  </table></div>
+
+  <div class="ct">3. Checklist Mandiri (Centang kalau Kamu Sudah Paham)</div>
+  <div class="cl-item"><input type="checkbox"> <span>Paham struktur esai yang benar (Harus ada Landasan Teori, Analisis, & Kesimpulan)</span></div>
+  <div class="cl-item"><input type="checkbox"> <span>Bisa bedakan kapan pakai tarif PPN 11% normal vs 11/12 (Nilai Lain)</span></div>
+  <div class="cl-item"><input type="checkbox"> <span>Tahu kalau metode LIFO itu dilarang keras di Indonesia oleh PSAK 14</span></div>
+  <div class="cl-item"><input type="checkbox"> <span>Bisa bedakan opini Audit: WDP (Lokal) vs Adverse (Menyebar rusak semua pos)</span></div>
+  <div class="cl-item"><input type="checkbox"> <span>Ingat rumus dasar BEP (Biaya Tetap dibagi Margin Kontribusi)</span></div>
+  <div class="cl-item"><input type="checkbox"> <span>Paham 3 pilar SIA: Pemisahan tugas, Blind receiving, dan Three-way matching</span></div>
+  <div class="cl-item"><input type="checkbox"> <span>Ingat 5 Prinsip Etika Utama (Integritas, Objektivitas, Kompetensi, Kerahasiaan, Perilaku Profesional)</span></div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════ AKM II -->
-<div id="akm2" class="section">
-  <div class="section-title">Akuntansi Keuangan Menengah II</div>
-  <div class="tags"><span class="tag teal">BMP AKM II</span><span class="tag gold">PSAK 16</span><span class="tag gold">PSAK 48</span><span class="tag gold">PSAK 72</span></div>
+<!-- ══════════════════════ OVERVIEW ══════════════════════ -->
+<div id="overview" class="sec">
+<div class="st">Peta Belajar UAS EACC4450</div>
+<p>UKT adalah mata kuliah integratif yang menguji kemampuan menerapkan <strong>seluruh ilmu akuntansi</strong> secara komprehensif dalam kasus nyata. Soal ujian bersifat esai analitis — bukan hanya hafalan, tapi kemampuan menghubungkan teori, standar, dan kasus.</p>
 
-  <div class="chapter-title">Revaluasi Aset Tetap (PSAK 16)</div>
-  <div class="card">
-    <div class="card-title">Model Revaluasi vs Model Biaya</div>
-    Model biaya: aset dicatat sebesar harga perolehan dikurangi akumulasi depresiasi dan akumulasi rugi penurunan nilai. Model revaluasi: aset dicatat sebesar nilai wajar pada tanggal revaluasi dikurangi akumulasi depresiasi dan rugi penurunan nilai setelah tanggal revaluasi.
-  </div>
-
-  <div class="formula">
-Nilai Buku = Harga Perolehan − Akumulasi Depresiasi
-
-<span class="comment">Jika Nilai Wajar > Nilai Buku → SURPLUS REVALUASI (masuk OCI/Ekuitas)</span>
-<span class="comment">Jika Nilai Wajar < Nilai Buku → RUGI PENURUNAN NILAI</span>
-  <span class="comment">  → Pertama hapus surplus revaluasi sebelumnya (jika ada)</span>
-  <span class="comment">  → Sisanya masuk Laba Rugi (PSAK 16 par. 40)</span>
-
-Depresiasi Baru = Nilai Wajar ÷ Sisa Umur Manfaat
-  </div>
-
-  <div class="chapter-title">Pengakuan Pendapatan (PSAK 72) — 5 Langkah</div>
-  <ul class="step-list">
-    <li><span class="step-num">1</span><div><strong>Identifikasi kontrak</strong> dengan pelanggan — pastikan kontrak memiliki kekuatan hukum dan memenuhi kriteria PSAK 72.</div></li>
-    <li><span class="step-num">2</span><div><strong>Identifikasi kewajiban pelaksanaan</strong> — setiap janji yang dapat dibedakan dalam kontrak.</div></li>
-    <li><span class="step-num">3</span><div><strong>Tentukan harga transaksi</strong> — termasuk variable consideration (diskon, penalti, bonus) dan constraint-nya.</div></li>
-    <li><span class="step-num">4</span><div><strong>Alokasikan harga transaksi</strong> ke setiap kewajiban pelaksanaan secara proporsional.</div></li>
-    <li><span class="step-num">5</span><div><strong>Akui pendapatan</strong> ketika (atau seiring) kewajiban pelaksanaan terpenuhi.</div></li>
-  </ul>
-
-  <div class="highlight-box">
-    <strong>Variable Consideration:</strong> Bagian pendapatan yang dapat berubah (diskon, penalti, bonus kinerja). PSAK 72 mensyaratkan constraint — hanya akui pendapatan yang sangat mungkin tidak mengalami reversal signifikan di masa depan.
-  </div>
-
-  <div class="chapter-title">Penurunan Nilai Aset (PSAK 48)</div>
-  <div class="tbl-wrap">
-    <table>
-      <tr><th>Konsep</th><th>Penjelasan</th></tr>
-      <tr><td>Indikasi Impairment Eksternal</td><td>Penurunan nilai pasar, perubahan teknologi, masalah hukum (gugatan), kondisi ekonomi memburuk</td></tr>
-      <tr><td>Indikasi Impairment Internal</td><td>Kerusakan aset, kinerja lebih buruk dari ekspektasi, rencana restrukturisasi</td></tr>
-      <tr><td>Recoverable Amount</td><td>Nilai lebih tinggi antara: (a) Value in Use dan (b) Fair Value less Cost of Disposal</td></tr>
-      <tr><td>Rugi Impairment</td><td>Nilai Buku − Recoverable Amount; diakui di Laba Rugi</td></tr>
-    </table>
-  </div>
+<div class="og">
+  <div class="oc" onclick="show('ppn',document.querySelectorAll('.nb')[3])"><div class="on">01</div><div class="ol">PPN & PPnBM</div></div>
+  <div class="oc" onclick="show('persediaan',document.querySelectorAll('.nb')[4])"><div class="on">02</div><div class="ol">Persediaan</div></div>
+  <div class="oc" onclick="show('audit',document.querySelectorAll('.nb')[5])"><div class="on">03</div><div class="ol">Audit & LAI</div></div>
+  <div class="oc" onclick="show('akm2',document.querySelectorAll('.nb')[6])"><div class="on">04</div><div class="ol">AKM II</div></div>
+  <div class="oc" onclick="show('manajemen',document.querySelectorAll('.nb')[7])"><div class="on">05</div><div class="ol">Akun. Manajemen</div></div>
+  <div class="oc" onclick="show('sia',document.querySelectorAll('.nb')[8])"><div class="on">06</div><div class="ol">SIA Siklus Pengeluaran</div></div>
+  <div class="oc" onclick="show('etika',document.querySelectorAll('.nb')[9])"><div class="on">07</div><div class="ol">Etika Profesi</div></div>
+  <div class="oc" onclick="show('soal',document.querySelectorAll('.nb')[10])"><div class="on">★</div><div class="ol">Bank Soal 40+</div></div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════ MANAJEMEN -->
-<div id="manajemen" class="section">
-  <div class="section-title">Akuntansi Manajemen & Biaya</div>
-  <div class="tags"><span class="tag teal">BMP Akuntansi Manajemen</span><span class="tag teal">BMP Akuntansi Biaya Modul 9</span></div>
+<div class="ct">Sub-CPMK yang Diuji (dari RPS 2026)</div>
+<div class="tw"><table>
+<tr><th>Sub-CPMK</th><th>Kompetensi</th><th>BMP Utama</th><th>Bobot Tugas</th></tr>
+<tr><td>031201</td><td>Analisis isu etika profesi & solusi berdasarkan KEPAP</td><td>BMP Etika & Anti Korupsi</td><td>Tugas 3</td></tr>
+<tr><td>031202</td><td>Prosedur audit, analisis bukti & temuan audit</td><td>BMP Auditing I</td><td>Tugas 1</td></tr>
+<tr><td>031203</td><td>Susun laporan keuangan SAK EP/Umum & analisis akun</td><td>BMP AKM I & II</td><td>Tugas 1 & 2</td></tr>
+<tr><td>031204</td><td>Analisis informasi keuangan untuk keputusan manajerial</td><td>BMP Akuntansi Manajemen & Biaya</td><td>Tugas 2 & 3</td></tr>
+<tr><td>031205</td><td>Hitung, analisis & laporkan kewajiban perpajakan</td><td>BMP Perpajakan</td><td>Tugas 1</td></tr>
+<tr><td>031206</td><td>Rancang SIA sederhana berdasarkan siklus transaksi</td><td>BMP SIA Modul 6</td><td>Tugas 3</td></tr>
+</table></div>
 
-  <div class="chapter-title">Analisis CVP — Biaya-Volume-Laba</div>
-  <div class="formula">
-Contribution Margin (CM)  = Harga Jual − Biaya Variabel
-CM Ratio                  = CM ÷ Harga Jual
-
-BEP (unit)  = Biaya Tetap ÷ CM per Unit
-BEP (Rp)    = Biaya Tetap ÷ CM Ratio
-
-Target Unit = (Biaya Tetap + Target Laba) ÷ CM per Unit
-
-<span class="comment">Untuk bauran produk (multiple products):</span>
-WACM = Σ (CM produk × Proporsi bauran)
-Total BEP  = Biaya Tetap ÷ WACM
-BEP produk = Total BEP × Proporsi bauran masing-masing produk
-  </div>
-
-  <div class="chapter-title">Activity Based Costing (ABC)</div>
-  <div class="card">
-    <div class="card-title">Prinsip Dasar ABC</div>
-    <strong>Produk mengonsumsi aktivitas → Aktivitas mengonsumsi sumber daya.</strong>
-    ABC mengalokasikan overhead berdasarkan hubungan kausal antara aktivitas dan produk, bukan hanya volume produksi.
-  </div>
-
-  <ul class="step-list">
-    <li><span class="step-num">1</span><div>Identifikasi dan klasifikasikan aktivitas overhead.</div></li>
-    <li><span class="step-num">2</span><div>Tentukan cost driver yang tepat untuk setiap aktivitas (hubungan kausal).</div></li>
-    <li><span class="step-num">3</span><div>Hitung tarif per aktivitas = Biaya Overhead Aktivitas ÷ Kapasitas Cost Driver.</div></li>
-    <li><span class="step-num">4</span><div>Alokasikan biaya ke produk = Tarif × Konsumsi aktivitas oleh produk.</div></li>
-    <li><span class="step-num">5</span><div>Hitung total biaya produk = BBL + TKL + Overhead ABC.</div></li>
-  </ul>
-
-  <div class="formula">
-Tarif Aktivitas = Biaya Overhead Aktivitas ÷ Kapasitas Cost Driver
-
-Overhead ABC per produk = Σ (Tarif Aktivitas × Konsumsi Aktivitas produk)
-
-Biaya per Unit = BBL + TKL + (Total Overhead ÷ Unit Produksi)
-  </div>
-
-  <div class="chapter-title">Perbandingan Metode Tradisional vs ABC</div>
-  <div class="tbl-wrap">
-    <table>
-      <tr><th>Aspek</th><th>Tradisional</th><th>ABC</th></tr>
-      <tr><td>Cost Driver</td><td>Satu (JKL / jam mesin)</td><td>Multiple (sesuai aktivitas)</td></tr>
-      <tr><td>Akurasi</td><td>Rendah untuk produk beragam</td><td>Tinggi — mencerminkan konsumsi aktual</td></tr>
-      <tr><td>Distorsi</td><td>Overcost produk volume tinggi/sederhana; undercost produk kompleks</td><td>Minimal</td></tr>
-      <tr><td>Kompleksitas</td><td>Sederhana</td><td>Lebih kompleks dan mahal implementasinya</td></tr>
-    </table>
-  </div>
+<div class="ct">Kriteria Penilaian (dari RPS 2026)</div>
+<div class="cg">
+<div class="cc"><h4>Ketepatan Jawaban</h4><p>Jawaban harus tepat secara teknis: angka benar, referensi PSAK/SA/UU sesuai, analisis logis dan tidak bertentangan standar.</p></div>
+<div class="cc"><h4>Ketepatan Bahasa</h4><p>Gunakan bahasa ilmiah yang baik. Hindari bahasa sehari-hari. Gunakan terminologi akuntansi yang tepat sesuai BMP UT.</p></div>
+<div class="cc"><h4>Kejujuran Akademik</h4><p>Sampaikan ide dengan cara sendiri. Parafrase dengan pemahaman, bukan menyalin teks. Ini dinilai eksplisit dalam rubrik.</p></div>
+<div class="cc"><h4>Kemampuan Integratif</h4><p>UKT menguji apakah bisa menghubungkan lintas mata kuliah dalam satu kasus — bukan topik terisolasi.</p></div>
+</div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════ SIA -->
-<div id="sia" class="section">
-  <div class="section-title">Sistem Informasi Akuntansi — Siklus Pengeluaran</div>
-  <div class="tags"><span class="tag teal">BMP SIA Modul 6</span><span class="tag gold">Romney & Steinbart</span></div>
+<!-- ══════════════════════ CARA ESAI ══════════════════════ -->
+<div id="howto" class="sec">
+<div class="st">Cara Menulis Esai Akademik UKT</div>
+<p>Ini adalah skill yang paling sering diabaikan mahasiswa. Banyak yang paham materi tapi nilai rendah karena tidak tahu cara menyajikan jawaban esai yang dinilai tinggi oleh pengajar.</p>
 
-  <div class="chapter-title">Tahapan Siklus Pengeluaran</div>
-  <ul class="step-list">
-    <li><span class="step-num">1</span><div><strong>Purchase Requisition (PR)</strong> — Bagian gudang/user mengajukan permintaan pembelian. Dokumen internal pemicu pengadaan.</div></li>
-    <li><span class="step-num">2</span><div><strong>Purchase Order (PO)</strong> — Bagian pembelian menerbitkan PO ke pemasok terotorisasi. Dokumen eksternal yang mengikat secara hukum.</div></li>
-    <li><span class="step-num">3</span><div><strong>Receiving Report (RR)</strong> — Bagian penerimaan memverifikasi kuantitas/kualitas barang dan membuat laporan penerimaan.</div></li>
-    <li><span class="step-num">4</span><div><strong>Invoice Processing</strong> — Three-way matching: PR + PO + RR vs Invoice pemasok sebelum kewajiban diakui.</div></li>
-    <li><span class="step-num">5</span><div><strong>Pencatatan Utang (AP)</strong> — Bagian akuntansi mencatat utang usaha setelah three-way matching selesai.</div></li>
-    <li><span class="step-num">6</span><div><strong>Cash Disbursement</strong> — Bagian keuangan membayar dengan otorisasi dua tanda tangan untuk nilai material.</div></li>
-  </ul>
+<div class="ct">Struktur Jawaban Esai yang Benar</div>
+<ul class="sl">
+<li><span class="sn2">1</span><div><strong>Definisi / Landasan Teori</strong> — Mulai dengan mendefinisikan konsep yang ditanyakan menggunakan referensi BMP atau standar yang relevan (PSAK, SA, UU).</div></li>
+<li><span class="sn2">2</span><div><strong>Dasar Hukum / Standar Akuntansi</strong> — Sebutkan secara eksplisit: "Berdasarkan PSAK 14...", "Sesuai Pasal 9 ayat 8 UU PPN...", "Mengacu pada SA 705...". Ini yang membedakan jawaban biasa dari jawaban ilmiah.</div></li>
+<li><span class="sn2">3</span><div><strong>Analisis Kasus</strong> — Terapkan teori/standar ke kasus yang diberikan. Tunjukkan hubungan eksplisit antara fakta kasus dan aturan yang berlaku.</div></li>
+<li><span class="sn2">4</span><div><strong>Perhitungan (jika ada)</strong> — Tampilkan langkah demi langkah. Jangan langsung ke angka akhir. Pengajar menilai proses, bukan hanya hasil.</div></li>
+<li><span class="sn2">5</span><div><strong>Kesimpulan</strong> — Tutup dengan pernyataan yang menjawab pertanyaan secara langsung dan ringkas.</div></li>
+</ul>
 
-  <div class="chapter-title">Ancaman dan Pengendalian Internal</div>
-  <div class="tbl-wrap">
-    <table>
-      <tr><th>Tahap</th><th>Ancaman Utama</th><th>Pengendalian</th></tr>
-      <tr><td>PR</td><td>Permintaan fiktif; kuantitas dilebihkan</td><td>Otorisasi supervisor; batas kuantitas; review level stok</td></tr>
-      <tr><td>PO</td><td>Pemasok tidak terotorisasi; harga inflated untuk kickback</td><td>Approved vendor list; otorisasi dua pihak; pemisahan fungsi</td></tr>
-      <tr><td>Receiving</td><td>RR dibuat tidak sesuai kondisi aktual; kolusi pemasok</td><td>Penghitungan fisik independen; blind receiving; tanda tangan RR</td></tr>
-      <tr><td>Invoice</td><td>Invoice ganda/fiktif; nilai berbeda dari PO</td><td>Three-way matching wajib; sistem tolak duplikasi; cap nomor invoice</td></tr>
-      <tr><td>AP</td><td>Pencatatan ke rekening salah; manipulasi saldo</td><td>Rekonsiliasi bulanan; segregation of duties; review supervisor</td></tr>
-      <tr><td>Pembayaran</td><td>Pembayaran ganda; rekening penerima salah</td><td>Otorisasi dua tanda tangan; cap LUNAS; konfirmasi rekening independen</td></tr>
-    </table>
-  </div>
-
-  <div class="highlight-box">
-    <strong>Three-way matching</strong> adalah kontrol kunci dalam siklus pengeluaran: mencocokkan PR, PO, dan RR dengan Invoice sebelum pembayaran diotorisasi. Tanpa ini, risiko pembayaran untuk barang yang tidak diterima sangat tinggi.
-  </div>
+<div class="ct">Contoh Full Essay Answer — Soal PPN</div>
+<div class="card gold"><div class="ct2">Soal</div>
+PT Aman Jaya memberikan produk secara cuma-cuma kepada karyawannya dengan harga jual normal Rp100.000.000. Apakah transaksi ini terutang PPN? Jika ya, berapa PPN-nya?
 </div>
 
-<!-- ═══════════════════════════════════════════════════ ETIKA -->
-<div id="etika" class="section">
-  <div class="section-title">Kode Etik Akuntan Indonesia</div>
-  <div class="tags"><span class="tag teal">BMP Etika & Anti Korupsi</span><span class="tag gold">KEPAP IAI 2024</span><span class="tag gold">UU No.31/1999 jo. 20/2001</span></div>
-
-  <div class="chapter-title">Lima Prinsip Fundamental Etika (KEPAP IAI)</div>
-  <div class="concept-grid">
-    <div class="concept-card">
-      <h4>1. Integritas</h4>
-      <p>Bersikap lugas, jujur, dan tegas dalam semua hubungan profesional. Tidak membuat pernyataan yang menyesatkan atau berbohong dalam laporan resmi.</p>
-    </div>
-    <div class="concept-card">
-      <h4>2. Objektivitas</h4>
-      <p>Tidak membiarkan bias, konflik kepentingan, atau tekanan pihak lain memengaruhi pertimbangan profesional.</p>
-    </div>
-    <div class="concept-card">
-      <h4>3. Kompetensi & Kehati-hatian</h4>
-      <p>Mempertahankan pengetahuan dan keahlian profesional, bertindak sesuai standar teknis dan profesional yang berlaku.</p>
-    </div>
-    <div class="concept-card">
-      <h4>4. Kerahasiaan</h4>
-      <p>Menjaga kerahasiaan informasi yang diperoleh dalam hubungan profesional — namun tidak untuk menutupi tindak pidana/fraud.</p>
-    </div>
-    <div class="concept-card">
-      <h4>5. Perilaku Profesional</h4>
-      <p>Mematuhi hukum dan peraturan yang berlaku, menghindari tindakan yang mendiskreditkan profesi akuntan.</p>
-    </div>
-  </div>
-
-  <div class="chapter-title">Kerangka NOCLAR (Non-Compliance with Laws and Regulations)</div>
-  <p>Ketika akuntan menemukan ketidakpatuhan terhadap peraturan perundang-undangan dalam organisasi tempat bekerja:</p>
-  <ul class="step-list">
-    <li><span class="step-num">1</span><div>Pahami sifat dan dampak ketidakpatuhan.</div></li>
-    <li><span class="step-num">2</span><div>Diskusikan dengan atasan langsung (kecuali atasan terlibat).</div></li>
-    <li><span class="step-num">3</span><div>Eskalasi ke level manajemen lebih tinggi atau Komite Audit.</div></li>
-    <li><span class="step-num">4</span><div>Jika tidak ada tindakan → pertimbangkan mundur dan/atau laporkan ke regulator.</div></li>
-  </ul>
-
-  <div class="chapter-title">Pencegahan Fraud — Perspektif GCG</div>
-  <div class="tbl-wrap">
-    <table>
-      <tr><th>Mekanisme GCG</th><th>Fungsi Pencegahan Fraud</th></tr>
-      <tr><td>Komite Audit Independen</td><td>Jalur pelaporan langsung dari internal audit; tidak dapat diintervensi manajemen</td></tr>
-      <tr><td>Whistleblowing System</td><td>Saluran anonim yang terlindungi; mencegah retaliasi terhadap pelapor</td></tr>
-      <tr><td>Rotasi Auditor</td><td>Mencegah kolusi jangka panjang antara auditor dan manajemen</td></tr>
-      <tr><td>Tone at the Top</td><td>Komitmen nyata manajemen puncak terhadap integritas dan kepatuhan</td></tr>
-      <tr><td>Segregation of Duties</td><td>Tidak ada satu orang yang menguasai seluruh siklus transaksi</td></tr>
-    </table>
-  </div>
-
-  <div class="chapter-title">Sanksi Pelanggaran Etika Akuntan</div>
-  <div class="tbl-wrap">
-    <table>
-      <tr><th>Pelanggaran</th><th>Dasar Hukum</th><th>Sanksi</th></tr>
-      <tr><td>Pemalsuan laporan keuangan</td><td>KUHP Pasal 263</td><td>Penjara hingga 6 tahun</td></tr>
-      <tr><td>Penipuan investor (pasar modal)</td><td>UU Pasar Modal No.8/1995 Pasal 90</td><td>Penjara hingga 10 tahun; denda hingga Rp15 miliar</td></tr>
-      <tr><td>Korupsi</td><td>UU 31/1999 jo. 20/2001</td><td>Penjara 4–20 tahun; denda Rp200 juta–Rp1 miliar</td></tr>
-      <tr><td>Gratifikasi</td><td>UU 20/2001 Pasal 12B</td><td>Penjara hingga 20 tahun</td></tr>
-    </table>
-  </div>
+<div class="et">
+<div class="eh">✓ Contoh Jawaban Esai yang Mendapat Nilai Tinggi</div>
+<div class="eb">
+<p><strong>1. Landasan Teori</strong><br>
+Berdasarkan Pasal 4 ayat (1) Undang-Undang Nomor 42 Tahun 2009 tentang Pajak Pertambahan Nilai, penyerahan Barang Kena Pajak (BKP) di dalam daerah pabean merupakan objek yang terutang PPN. Hal ini mencakup pula penyerahan cuma-cuma (pemberian hadiah) sebagaimana diatur dalam penjelasan pasal tersebut.</p>
+<p><strong>2. Dasar Hukum DPP</strong><br>
+Untuk penyerahan cuma-cuma, Dasar Pengenaan Pajak (DPP) tidak menggunakan harga jual biasa melainkan menggunakan DPP Nilai Lain sesuai PMK Nomor 75/PMK.03/2010. DPP Nilai Lain ditetapkan sebesar 11/12 dari harga jual, dengan logika bahwa nilai ini merupakan nilai sebelum PPN dari harga yang sudah mengandung PPN di dalamnya.</p>
+<p><strong>3. Analisis Kasus</strong><br>
+Pemberian produk secara cuma-cuma oleh PT Aman Jaya kepada karyawannya merupakan penyerahan BKP tanpa imbalan. Meskipun tidak ada transaksi jual beli, penyerahan ini tetap terutang PPN karena terjadi konsumsi BKP di dalam daerah pabean. Oleh karena itu, PT Aman Jaya wajib memungut PPN atas penyerahan tersebut menggunakan DPP Nilai Lain.</p>
+<p><strong>4. Perhitungan</strong><br>
+DPP Nilai Lain = 11/12 × Rp100.000.000 = Rp91.666.667<br>
+PPN Keluaran = 11% × Rp91.666.667 = Rp10.083.333</p>
+<p><strong>5. Kesimpulan</strong><br>
+Transaksi pemberian cuma-cuma PT Aman Jaya terutang PPN sebesar Rp10.083.333. Pajak Keluaran ini wajib dilaporkan dalam SPT Masa PPN dan disetor paling lambat akhir bulan berikutnya.</p>
+</div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════ BANK SOAL -->
-<div id="soal" class="section">
-  <div class="section-title">Bank Soal Esai — Prediksi UAS</div>
-  <p style="margin-bottom:1.5rem;">Klik <strong>"Lihat Panduan Jawaban"</strong> untuk melihat poin-poin kunci yang harus ada dalam jawaban esai.</p>
+<div class="ct">Rubrik Penilaian Umum Soal Esai UKT</div>
+<div class="rg">
+<div class="rc"><div class="rh a">A (85–100)</div><div class="rb">Jawaban lengkap, dasar hukum/PSAK tepat dan spesifik, analisis logis dan terstruktur, perhitungan benar langkah demi langkah, bahasa ilmiah.</div></div>
+<div class="rc"><div class="rh b">B (70–84)</div><div class="rb">Jawaban sebagian besar benar, menyebut standar tapi kurang spesifik, analisis ada tapi tidak mendalam, bahasa cukup ilmiah.</div></div>
+<div class="rc"><div class="rh c">C (55–69)</div><div class="rb">Menjawab tapi tidak lengkap, standar tidak disebutkan atau salah, perhitungan ada kesalahan, analisis dangkal.</div></div>
+<div class="rc"><div class="rh d">D (&lt;55)</div><div class="rb">Jawaban tidak relevan, tidak ada dasar hukum, perhitungan salah atau tidak ada, bahasa tidak ilmiah.</div></div>
+</div>
 
-  <!-- SOAL 1 -->
-  <div class="soal-card">
-    <div class="soal-header">
-      <span class="soal-num">Soal 01 — PPN</span>
-      <span class="soal-topic">BMP Perpajakan | UU PPN | PMK 131/2024</span>
-    </div>
-    <div class="soal-body">
-      <div class="q">PT Maju Bersama melakukan beberapa transaksi berikut pada bulan Oktober 2026: (1) Menjual barang ke distributor dalam negeri senilai Rp500.000.000, (2) Mengekspor barang ke Jepang senilai Rp300.000.000, (3) Memberikan sampel produk secara cuma-cuma kepada mitra dengan harga jual normal Rp50.000.000, (4) Mengimpor bahan baku dengan CIF $5.000 bea masuk 10% kurs Rp16.000/USD, (5) Membeli jasa konsultasi manajemen dari konsultan asing yang dimanfaatkan di Indonesia senilai Rp200.000.000. Hitung PPN Keluaran, PPN Masukan, dan tentukan apakah terjadi kurang atau lebih bayar. Jelaskan dasar hukum setiap perlakuan.</div>
-      <button class="toggle-btn" onclick="toggleAnswer(this)">Lihat Panduan Jawaban</button>
-      <div class="answer">
-        <div class="answer-label">Poin Kunci Jawaban</div>
-        <ol>
-          <li><strong>Transaksi 1 (PK):</strong> Penyerahan BKP DN → PPN 11% × Rp500 juta = Rp55.000.000</li>
-          <li><strong>Transaksi 2 (PK):</strong> Ekspor BKP → PPN 0% (Pasal 7 ayat 2 UU PPN). Sebutkan alasannya: mendorong daya saing ekspor.</li>
-          <li><strong>Transaksi 3 (PK):</strong> Pemberian cuma-cuma = penyerahan BKP terutang PPN. DPP = Nilai Lain = 11/12 × Rp50 juta = Rp45.833.333. PPN = 11% × Rp45.833.333 ≈ Rp5.041.667. Dasar: PMK 75/2010.</li>
-          <li><strong>Transaksi 4 (PM):</strong> DPP Impor = (CIF × kurs) + Bea Masuk = ($5.000 × Rp16.000) + 10% = Rp80.000.000 + Rp8.000.000 = Rp88.000.000. PPN Impor = 11% × Rp88 juta = Rp9.680.000.</li>
-          <li><strong>Transaksi 5 (PM):</strong> Pemanfaatan JKP dari luar daerah pabean = terutang PPN self-assessed (Pasal 4 ayat 1 huruf e). PPN = 11% × Rp200 juta = Rp22.000.000. PM dapat dikreditkan.</li>
-          <li>Hitung PK total, PM total, dan tentukan kurang/lebih bayar dengan persamaan PK − PM.</li>
-        </ol>
-      </div>
-    </div>
-  </div>
+<div class="ct">Kesalahan Umum yang Harus Dihindari</div>
+<div class="hb red">
+<strong>❌ Jangan lakukan ini:</strong>
+<ul style="margin-top:.5rem;padding-left:1.2rem;">
+<li>Langsung menulis angka tanpa menjelaskan rumus atau dasar hukumnya</li>
+<li>Menyebutkan "sesuai aturan yang berlaku" tanpa menyebut aturan spesifik</li>
+<li>Menulis kesimpulan tanpa menghubungkannya ke analisis sebelumnya</li>
+<li>Mencampur bahasa sehari-hari dengan terminologi teknis</li>
+<li>Menjawab hanya satu sub-pertanyaan padahal ada beberapa</li>
+</ul>
+</div>
+<div class="hb green">
+<strong>✓ Lakukan ini:</strong>
+<ul style="margin-top:.5rem;padding-left:1.2rem;">
+<li>Selalu sebut PSAK/SA/UU/PMK yang spesifik beserta nomor pasal/paragrafnya</li>
+<li>Tunjukkan langkah perhitungan secara eksplisit meski terlihat mudah</li>
+<li>Gunakan kata penghubung analitis: "karena...", "oleh karena itu...", "berdasarkan hal tersebut..."</li>
+<li>Untuk soal analitis, bahas dua sisi (pro dan kontra/dampak positif dan negatif)</li>
+<li>Verifikasi hasil hitungan di akhir jika memungkinkan</li>
+</ul>
+</div>
+</div>
 
-  <!-- SOAL 2 -->
-  <div class="soal-card">
-    <div class="soal-header">
-      <span class="soal-num">Soal 02 — Persediaan FIFO</span>
-      <span class="soal-topic">BMP AKM I | PSAK 14</span>
-    </div>
-    <div class="soal-body">
-      <div class="q">PT Teknologi Prima memiliki persediaan awal 500 unit @ Rp10.000. Transaksi selama bulan April: Beli 1.000 unit @ Rp11.000 (5 April), Jual 800 unit @ Rp15.000 (10 April), Beli 600 unit @ Rp12.000 (15 April), Retur penjualan 50 unit (17 April), Jual 700 unit @ Rp16.000 (25 April), Write-off 30 unit rusak (30 April). Gunakan metode FIFO Perpetual untuk menghitung HPP, laba kotor, dan persediaan akhir. Buat jurnal untuk setiap transaksi.</div>
-      <button class="toggle-btn" onclick="toggleAnswer(this)">Lihat Panduan Jawaban</button>
-      <div class="answer">
-        <div class="answer-label">Langkah Pengerjaan</div>
-        <ol>
-          <li>Mulai dari saldo awal 500 unit @ Rp10.000</li>
-          <li>5 April: tambah layer 1.000 unit @ Rp11.000. Saldo: 500@10.000 + 1.000@11.000</li>
-          <li>10 April jual 800 unit (FIFO): ambil 500@10.000 + 300@11.000. HPP = Rp5.000.000 + Rp3.300.000 = Rp8.300.000. Sisa: 700@11.000</li>
-          <li>15 April: tambah 600@12.000. Saldo: 700@11.000 + 600@12.000</li>
-          <li>17 April retur 50 unit kembali @ Rp11.000 (HPP asal). Saldo: 750@11.000 + 600@12.000</li>
-          <li>25 April jual 700 unit (FIFO): ambil 700@11.000. HPP = Rp7.700.000. Sisa: 600@12.000</li>
-          <li>30 April write-off 30 unit @ Rp12.000 = Rp360.000. Saldo akhir: 570@12.000 = Rp6.840.000</li>
-          <li>Hitung penjualan bersih, total HPP bersih, dan laba kotor</li>
-          <li>Buat semua jurnal sesuai format: pembelian, penjualan (2 jurnal), retur (2 jurnal), write-off</li>
-        </ol>
-      </div>
-    </div>
-  </div>
+<!-- ══════════════════════ PPN ══════════════════════ -->
+<div id="ppn" class="sec">
+<div class="st">PPN & PPnBM</div>
+<div class="tags"><span class="tag t">BMP Perpajakan</span><span class="tag g">UU PPN No.42/2009</span><span class="tag g">UU HPP No.7/2021</span><span class="tag g">PMK 131/2024</span><span class="tag g">PMK 75/2010</span></div>
 
-  <!-- SOAL 3 -->
-  <div class="soal-card">
-    <div class="soal-header">
-      <span class="soal-num">Soal 03 — Laporan Auditor Independen</span>
-      <span class="soal-topic">BMP Auditing I | SA 700, 705</span>
-    </div>
-    <div class="soal-body">
-      <div class="q">PT Cahaya Abadi sedang diaudit oleh KAP Andalan Sejati untuk tahun buku 2026. Auditor menemukan bahwa perusahaan tidak mencatat provisi atas gugatan hukum senilai Rp200 miliar yang kemungkinan besar (probable) akan dikalahkan. Manajemen menolak mencatat provisi tersebut. Selain itu, KAP tersebut mendapat 35% pendapatannya dari PT Cahaya Abadi. (a) Jenis opini apa yang paling tepat? Jelaskan alasannya dengan mengacu pada SA 705. (b) Apa ancaman independensi yang dihadapi KAP? (c) Buatlah contoh singkat Laporan Auditor Independen dengan tiga paragraf utama.</div>
-      <button class="toggle-btn" onclick="toggleAnswer(this)">Lihat Panduan Jawaban</button>
-      <div class="answer">
-        <div class="answer-label">Poin Kunci Jawaban</div>
-        <ol>
-          <li><strong>Opini: Wajar Dengan Pengecualian (WDP)</strong> — salah saji material (tidak catat provisi Rp200 miliar sesuai PSAK 57) namun tidak pervasif (terlokalisir pada satu pos). SA 705 par. 7: WDP tepat jika salah saji material tapi tidak pervasif.</li>
-          <li>Jelaskan perbedaan: WDP (material tidak pervasif) vs Adverse (material DAN pervasif) vs Disclaimer (keterbatasan ruang lingkup pervasif).</li>
-          <li><strong>Ancaman Independensi:</strong> Self-Interest Threat — 35% pendapatan dari satu klien melebihi ambang kewajaran. Tindakan: rotasi partner, second review, atau pertimbangkan mundur (KEPAP).</li>
-          <li><strong>Format LAI:</strong> Paragraf Pengantar (apa yang diaudit, tanggung jawab manajemen vs auditor) → Paragraf Lingkup (standar yang digunakan, prosedur) → Paragraf Pendapat (opini WDP + Dasar Pengecualian).</li>
-          <li>Masukkan paragraf "Dasar Opini Wajar Dengan Pengecualian" yang menjelaskan provisi yang tidak dicatat dan dampaknya terhadap laporan keuangan.</li>
-        </ol>
-      </div>
-    </div>
-  </div>
+<div class="ct">Tarif PPN 2024–2025 (PMK 131/2024)</div>
+<div class="cg">
+<div class="cc"><h4>11% Efektif</h4><p>Tarif efektif untuk barang/jasa umum. Secara teknis tarif 12% × DPP Nilai Lain 11/12, sehingga efektif 11%. Berlaku untuk mayoritas transaksi.</p></div>
+<div class="cc"><h4>0% untuk Ekspor</h4><p>Ekspor BKP berwujud, BKP tidak berwujud, dan JKP ke luar negeri dikenai tarif 0% untuk mendorong daya saing ekspor (Pasal 7 ayat 2).</p></div>
+<div class="cc"><h4>Tarif Khusus 12%</h4><p>Hanya untuk barang mewah tertentu: kendaraan bermotor mewah, hunian mewah, pesawat udara, kapal pesiar. Tidak berlaku untuk produk umum.</p></div>
+<div class="cc"><h4>DPP Nilai Lain</h4><p>11/12 × harga jual. Digunakan ketika harga sudah termasuk PPN atau untuk penyerahan cuma-cuma/pemakaian sendiri (PMK 75/2010).</p></div>
+</div>
 
-  <!-- SOAL 4 -->
-  <div class="soal-card">
-    <div class="soal-header">
-      <span class="soal-num">Soal 04 — Revaluasi Aset Tetap</span>
-      <span class="soal-topic">BMP AKM II | PSAK 16</span>
-    </div>
-    <div class="soal-body">
-      <div class="q">PT Industri Maju memiliki mesin yang diperoleh 1 Januari 2020 dengan biaya Rp120 miliar, umur manfaat 20 tahun, metode garis lurus. Pada 31 Desember 2026, penilai independen menetapkan nilai wajar Rp65 miliar. Tidak ada revaluasi sebelumnya. (a) Hitung nilai buku per 31 Desember 2026. (b) Hitung dampak revaluasi dan tentukan perlakuan akuntansinya. (c) Hitung beban depresiasi baru mulai 2027. (d) Jelaskan dampak terhadap profitabilitas dan DER.</div>
-      <button class="toggle-btn" onclick="toggleAnswer(this)">Lihat Panduan Jawaban</button>
-      <div class="answer">
-        <div class="answer-label">Langkah Pengerjaan</div>
-        <ol>
-          <li>Depresiasi/tahun = Rp120 M ÷ 20 = Rp6 M/tahun. Periode pakai 2020–2026 = 7 tahun. Akumulasi = Rp42 M. Nilai Buku = Rp120 M − Rp42 M = <strong>Rp78 M</strong>.</li>
-          <li>Nilai Wajar Rp65 M < Nilai Buku Rp78 M → selisih −Rp13 M. Tidak ada surplus sebelumnya → <strong>Rugi Penurunan Nilai Rp13 M masuk Laba Rugi</strong> (PSAK 16 par. 40).</li>
-          <li>Jurnal: Dr Akumulasi Depresiasi 42 M / Cr Mesin 42 M; Dr Rugi Penurunan Nilai 13 M / Cr Mesin 13 M.</li>
-          <li>Depresiasi 2027 = Rp65 M ÷ (20−7) = Rp65 M ÷ 13 = <strong>Rp5 M/tahun</strong>.</li>
-          <li>Dampak: Laba 2026 turun Rp13 M (rugi L/R). Ekuitas turun → DER meningkat. Depresiasi 2027 turun dari Rp6 M ke Rp5 M → laba 2027 sedikit lebih tinggi dibanding jika tidak ada revaluasi.</li>
-        </ol>
-      </div>
-    </div>
-  </div>
+<div class="ct">Perlakuan Khusus Transaksi</div>
+<div class="tw"><table>
+<tr><th>Transaksi</th><th>PPN</th><th>DPP</th><th>Dasar Hukum</th></tr>
+<tr><td>Penjualan BKP dalam negeri</td><td>11%</td><td>Harga jual</td><td>Pasal 4 ayat 1</td></tr>
+<tr><td>Ekspor BKP</td><td>0%</td><td>Nilai ekspor</td><td>Pasal 7 ayat 2</td></tr>
+<tr><td>Penyerahan cuma-cuma</td><td>11%</td><td>11/12 × harga jual</td><td>PMK 75/2010</td></tr>
+<tr><td>Pemakaian sendiri</td><td>11%</td><td>11/12 × harga jual</td><td>PMK 75/2010</td></tr>
+<tr><td>Impor BKP</td><td>11%</td><td>CIF + Bea Masuk</td><td>Pasal 4 ayat 1 huruf b</td></tr>
+<tr><td>JKP luar negeri dimanfaatkan DN</td><td>11% self-assessed</td><td>Nilai kontrak</td><td>Pasal 4 ayat 1 huruf e</td></tr>
+<tr><td>Cabang PKP berbeda</td><td>11%</td><td>Harga jual</td><td>Penyerahan antar PKP</td></tr>
+<tr><td>Cabang satu PKP</td><td>Tidak terutang</td><td>—</td><td>Bukan penyerahan</td></tr>
+<tr><td>Konsinyasi</td><td>11% saat terjual ke pembeli akhir</td><td>Harga jual ke pembeli akhir</td><td>Saat terutang</td></tr>
+<tr><td>Jasa keuangan DN</td><td>Tidak terutang</td><td>—</td><td>Pasal 4A (dikecualikan)</td></tr>
+</table></div>
 
-  <!-- SOAL 5 -->
-  <div class="soal-card">
-    <div class="soal-header">
-      <span class="soal-num">Soal 05 — BEP & Target Laba</span>
-      <span class="soal-topic">BMP Akuntansi Manajemen | CVP Analysis</span>
-    </div>
-    <div class="soal-body">
-      <div class="q">PT Kreatif Mandiri memproduksi tiga varian produk dengan data: Produk A (harga Rp80.000, biaya variabel Rp55.000, proporsi 40%), Produk B (harga Rp120.000, biaya variabel Rp75.000, proporsi 40%), Produk C (harga Rp60.000, biaya variabel Rp50.000, proporsi 20%). Biaya tetap Rp855.000.000. (a) Hitung WACM. (b) Hitung BEP total dan per produk. (c) Jika perusahaan menambah biaya iklan Rp150.000.000 dan menargetkan laba Rp855.000.000, berapa unit yang harus dijual per produk? (d) Dengan kapasitas 50.000 unit, apakah target dapat dipenuhi?</div>
-      <button class="toggle-btn" onclick="toggleAnswer(this)">Lihat Panduan Jawaban</button>
-      <div class="answer">
-        <div class="answer-label">Langkah Pengerjaan</div>
-        <ol>
-          <li>CM: A = Rp25.000, B = Rp45.000, C = Rp10.000</li>
-          <li>WACM = (25.000×0,4) + (45.000×0,4) + (10.000×0,2) = 10.000 + 18.000 + 2.000 = <strong>Rp30.000</strong></li>
-          <li>BEP = Rp855 juta ÷ Rp30.000 = <strong>28.500 unit</strong>. A: 11.400, B: 11.400, C: 5.700</li>
-          <li>Target unit = (Rp150 juta + Rp855 juta) ÷ Rp30.000 = Rp1.005 juta ÷ Rp30.000 = <strong>33.500 unit</strong>. A: 13.400, B: 13.400, C: 6.700</li>
-          <li>33.500 unit < 50.000 kapasitas → <strong>Target DAPAT dipenuhi</strong>. Simulasi laba: 50.000 × Rp30.000 − Rp855 juta − Rp150 juta = Rp1.500 juta − Rp1.005 juta = <strong>Rp495 juta surplus</strong> di atas target.</li>
-        </ol>
-      </div>
-    </div>
-  </div>
+<div class="ct">PM yang Tidak Dapat Dikreditkan (Pasal 9 ayat 8)</div>
+<div class="card red"><div class="ct2">Tidak dapat dikreditkan jika perolehan BKP/JKP:</div>
+<ul style="padding-left:1.2rem;margin-top:.4rem;font-size:.9rem;">
+<li>Tidak berhubungan langsung dengan kegiatan usaha</li>
+<li>Untuk kepentingan pribadi pengurus, pemegang saham, atau keluarganya</li>
+<li>Kendaraan bermotor (kecuali angkutan umum/barang/untuk dijual)</li>
+<li>Sebelum dikukuhkan sebagai PKP</li>
+</ul>
+</div>
 
-  <!-- SOAL 6 -->
-  <div class="soal-card">
-    <div class="soal-header">
-      <span class="soal-num">Soal 06 — ABC Costing</span>
-      <span class="soal-topic">BMP Akuntansi Biaya Modul 9</span>
-    </div>
-    <div class="soal-body">
-      <div class="q">PT Elektronik Nusantara memproduksi dua produk: Tablet (8.000 unit) dan Smartphone (12.000 unit). Data overhead: Setup mesin Rp600 juta (150 setup), Inspeksi kualitas Rp300 juta (10.000 inspeksi), Pengemasan Rp240 juta (6.000 jam). Jam kerja langsung: Tablet 0,6 jam, Smartphone 0,4 jam. BBL: Tablet Rp1.500.000, Smartphone Rp900.000. TKL: Tablet Rp600.000, Smartphone Rp400.000. Kapasitas normal 10.000 JKL. Konsumsi aktivitas: Setup (Tablet 90, Smartphone 60), Inspeksi (Tablet 6.000, Smartphone 4.000), Pengemasan (Tablet 3.600, Smartphone 2.400). Hitung biaya per unit dengan metode tradisional (JKL) dan ABC. Metode mana yang lebih akurat?</div>
-      <button class="toggle-btn" onclick="toggleAnswer(this)">Lihat Panduan Jawaban</button>
-      <div class="answer">
-        <div class="answer-label">Langkah Pengerjaan</div>
-        <ol>
-          <li><strong>Tradisional:</strong> Total OH = Rp1.140 juta. Tarif = Rp1.140 juta ÷ 10.000 = Rp114.000/JKL. Tablet: 0,6 × 114.000 = Rp68.400. Smartphone: 0,4 × 114.000 = Rp45.600.</li>
-          <li><strong>ABC Tarif:</strong> Setup = Rp600 juta ÷ 150 = Rp4 juta/setup. Inspeksi = Rp300 juta ÷ 10.000 = Rp30.000/inspeksi. Pengemasan = Rp240 juta ÷ 6.000 = Rp40.000/jam kemas.</li>
-          <li><strong>Tablet OH:</strong> (90×4jt) + (6.000×30rb) + (3.600×40rb) = 360+180+144 = Rp684 juta → Rp85.500/unit</li>
-          <li><strong>Smartphone OH:</strong> (60×4jt) + (4.000×30rb) + (2.400×40rb) = 240+120+96 = Rp456 juta → Rp38.000/unit</li>
-          <li>Biaya total per unit — hitung dan bandingkan kedua metode.</li>
-          <li><strong>ABC lebih akurat</strong> karena menggunakan hubungan kausal per aktivitas, bukan satu tarif tunggal. Metode tradisional menyebabkan Tablet undercost dan Smartphone overcost (atau sebaliknya) karena tidak mencerminkan konsumsi aktivitas sesungguhnya.</li>
-        </ol>
-      </div>
-    </div>
-  </div>
+<div class="ct">Formula Kunci PPN</div>
+<div class="fm">PPN Kurang/Lebih Bayar = Pajak Keluaran (PK) − Pajak Masukan (PM)
 
-  <!-- SOAL 7 -->
-  <div class="soal-card">
-    <div class="soal-header">
-      <span class="soal-num">Soal 07 — Siklus Pengeluaran SIA</span>
-      <span class="soal-topic">BMP SIA Modul 6</span>
-    </div>
-    <div class="soal-body">
-      <div class="q">PT Manufaktur Gemilang melakukan pembelian bahan baku 10.000 unit @ Rp15.000/unit dari PT Supplier Andal. Bagian gudang mengajukan PR, bagian pembelian menerbitkan PO, barang diterima sesuai pesanan, invoice diterima Rp150.000.000, dicatat sebagai utang, dan dibayar melalui transfer bank. Namun, ditemukan bahwa: (1) bagian penerimaan mengetahui kuantitas di PO sebelum menghitung barang, (2) satu orang di bagian akuntansi menangani pencatatan dan pembayaran sekaligus. Identifikasi tahapan siklus pengeluaran, ancaman pada masing-masing temuan, dan rekomendasi pengendalian internal yang tepat.</div>
-      <button class="toggle-btn" onclick="toggleAnswer(this)">Lihat Panduan Jawaban</button>
-      <div class="answer">
-        <div class="answer-label">Poin Kunci Jawaban</div>
-        <ol>
-          <li>Jelaskan 6 tahapan siklus pengeluaran (PR → PO → RR → Invoice → AP → Pembayaran) dengan dokumen di setiap tahap.</li>
-          <li><strong>Temuan 1 — Receiving tahu kuantitas PO:</strong> Ancaman = RR dapat dibuat sesuai PO tanpa penghitungan fisik sesungguhnya → barang tidak diterima penuh tapi dicatat penuh. Pengendalian: Blind receiving — bagian penerimaan tidak boleh melihat kuantitas di PO sebelum menghitung sendiri.</li>
-          <li><strong>Temuan 2 — Satu orang tangani AP + pembayaran:</strong> Ancaman = risiko penggelapan (embezzlement) dan pembayaran fiktif tanpa checks and balances. Pengendalian: Segregation of duties wajib — orang yang mencatat utang tidak boleh sama dengan yang membayar.</li>
-          <li>Tambahkan pengendalian lain: three-way matching, otorisasi dua tanda tangan, cap LUNAS, rekonsiliasi berkala.</li>
-        </ol>
-      </div>
-    </div>
-  </div>
+<span class="cm">──── PAJAK KELUARAN ────────────────────────────────────</span>
+PK Umum         = 11% × DPP (harga jual belum termasuk PPN)
+PK Cuma-cuma    = 11% × (11/12 × harga jual)
+PK Impor        = 11% × (CIF × kurs + Bea Masuk)
+PK Ekspor       = 0% × Nilai Ekspor = Rp0
 
-  <!-- SOAL 8 -->
-  <div class="soal-card">
-    <div class="soal-header">
-      <span class="soal-num">Soal 08 — Dilema Etika Akuntan</span>
-      <span class="soal-topic">BMP Etika & Anti Korupsi | KEPAP IAI 2024</span>
-    </div>
-    <div class="soal-body">
-      <div class="q">Anda adalah akuntan internal PT Berkah Jaya. Dalam proses tutup buku akhir tahun, Anda menemukan bahwa Direktur Keuangan telah memerintahkan tim akuntansi untuk memajukan pengakuan pendapatan dari kontrak yang baru akan dieksekusi tahun depan sebesar Rp300 miliar, semata untuk memenuhi target bonus direksi. Ketika Anda berencana melaporkan hal ini, Direktur Keuangan menawarkan kenaikan gaji 50% dengan syarat Anda "tidak mempermasalahkan" temuan tersebut. (a) Identifikasi dilema etis yang dihadapi. (b) Prinsip KEPAP apa yang terancam? (c) Langkah konkret apa yang harus Anda ambil? (d) Apa konsekuensi jika Anda menerima tawaran tersebut?</div>
-      <button class="toggle-btn" onclick="toggleAnswer(this)">Lihat Panduan Jawaban</button>
-      <div class="answer">
-        <div class="answer-label">Poin Kunci Jawaban</div>
-        <ol>
-          <li><strong>Dilema etis:</strong> Konflik antara integritas profesional vs tekanan dan iming-iming keuntungan pribadi. Ini bukan dilema personal biasa — berdampak pada laporan keuangan yang digunakan pemegang saham dan pihak eksternal.</li>
-          <li><strong>Prinsip KEPAP yang terancam:</strong> Integritas (diminta berbohong dalam laporan resmi), Objektivitas (tawaran kenaikan gaji = konflik kepentingan), Kompetensi (mengabaikan hasil kerja analitis sendiri), Perilaku Profesional (berkomplot dalam pelanggaran PSAK 72).</li>
-          <li><strong>Langkah:</strong> Dokumentasikan tekanan → pertahankan temuan → eskalasi ke Komite Audit → tolak tawaran → konsultasi IAI/penasihat hukum → whistleblowing jika perlu.</li>
-          <li><strong>Konsekuensi menerima tawaran:</strong> Sanksi profesional (pencabutan sertifikasi), sanksi pidana (pemalsuan dokumen KUHP 263, gratifikasi UU 20/2001), rusaknya reputasi permanen. Penerimaan kenaikan gaji atas diam = gratifikasi yang dapat dipidana.</li>
-        </ol>
-      </div>
-    </div>
-  </div>
+<span class="cm">──── PAJAK MASUKAN ─────────────────────────────────────</span>
+DPP harga sudah termasuk PPN = 11/12 × harga bruto
+<span class="cm">Mengapa 11/12? → Harga = DPP × 1,11 → DPP = Harga / 1,11 = Harga × (100/111) ≈ Harga × (11/12)</span></div>
 
-  <!-- SOAL 9 INTEGRATIF -->
-  <div class="soal-card">
-    <div class="soal-header">
-      <span class="soal-num">Soal 09 — INTEGRATIF (Tingkat UKT)</span>
-      <span class="soal-topic">Multi-topik | AKM + Audit + Etika</span>
-    </div>
-    <div class="soal-body">
-      <div class="q">PT Global Tech adalah perusahaan teknologi multinasional. Dalam audit tahun 2026 ditemukan: (1) Aset mesin senilai Rp200 miliar memiliki nilai wajar hanya Rp140 miliar, namun tidak dicatat impairment-nya. (2) Pendapatan kontrak 10 tahun diakui penuh tanpa mempertimbangkan variable consideration (klausul penalti 8%). (3) Manajemen menekan auditor untuk tidak memasukkan temuan ini dalam laporan dengan menjanjikan kontrak konsultasi Rp20 miliar. Analisis: (a) Perlakuan akuntansi yang benar untuk aset dan pendapatan. (b) Jenis opini audit yang tepat dan alasannya. (c) Ancaman independensi auditor dan cara mengatasinya. (d) Prinsip etika yang dilanggar dan konsekuensinya.</div>
-      <button class="toggle-btn" onclick="toggleAnswer(this)">Lihat Panduan Jawaban</button>
-      <div class="answer">
-        <div class="answer-label">Framework Jawaban Integratif</div>
-        <ol>
-          <li><strong>(a) Perlakuan benar:</strong> Impairment Rp60 miliar harus diakui di L/R (PSAK 48). Pendapatan harus dikurangi estimasi penalti 8% (PSAK 72 — constraint on variable consideration). Keduanya menyebabkan laba dan aset overstated.</li>
-          <li><strong>(b) Opini:</strong> Jika manajemen tetap tidak koreksi — WDP (Wajar Dengan Pengecualian) karena dua salah saji material namun bisa terlokalisir (tidak pervasif). Jika salah saji berdampak ke banyak pos → pertimbangkan Adverse. Jelaskan dasar SA 705.</li>
-          <li><strong>(c) Ancaman:</strong> Self-Review Threat (tawaran konsultasi Rp20 M) + Intimidation Threat (tekanan dari manajemen). Solusi: tolak tawaran konsultasi (KEPAP), dokumentasikan tekanan, laporkan ke Komite Audit (SA 260), pertimbangkan mundur.</li>
-          <li><strong>(d) Etika:</strong> Integritas, Objektivitas, dan Perilaku Profesional terancam. Jika auditor menuruti → pemalsuan laporan (KUHP 263), gratifikasi (UU 20/2001), pencabutan izin KAP.</li>
-        </ol>
-      </div>
-    </div>
-  </div>
+<div class="hb"><strong>Perbedaan DPP Nilai Lain vs DPP Normal:</strong> DPP normal = harga jual (harga belum termasuk PPN). DPP Nilai Lain (11/12) = digunakan HANYA ketika harga sudah include PPN atau untuk penyerahan cuma-cuma. Salah menggunakan ini adalah kesalahan paling umum dalam soal PPN.</div>
+
+<div class="ct">Contoh Soal Latihan PPN <span class="diff c3">C3</span></div>
+<div class="sc"><div class="sh"><span class="sn">Latihan PPN-01</span><span class="st2">BMP Perpajakan | PMK 131/2024</span></div>
+<div class="sb">
+<div class="q">PT Sukses Makmur melakukan transaksi: (1) Jual ke distributor DN Rp400 juta, (2) Ekspor ke Malaysia Rp200 juta, (3) Bagi produk gratis ke karyawan seharga Rp30 juta, (4) Impor bahan baku CIF $8.000 bea masuk 5% kurs Rp16.000/USD, (5) Pakai jasa IT konsultan asing Rp150 juta. Hitung PK, PM, dan kurang/lebih bayar.</div>
+<button class="tb" onclick="toggleAnswer(this)">Lihat Kunci</button>
+<div class="an"><div class="al">Kunci Jawaban</div>
+<ol>
+<li>PK: 11% × Rp400 juta = <strong>Rp44.000.000</strong></li>
+<li>PK: 0% (ekspor) = <strong>Rp0</strong></li>
+<li>PK cuma-cuma: 11% × (11/12 × Rp30 juta) = 11% × Rp27.500.000 = <strong>Rp3.025.000</strong></li>
+<li>PM impor: DPP = ($8.000 × Rp16.000) + 5% = Rp128.000.000 + Rp6.400.000 = Rp134.400.000. PM = 11% × Rp134,4 juta = <strong>Rp14.784.000</strong></li>
+<li>PM self-assessed: 11% × Rp150 juta = <strong>Rp16.500.000</strong></li>
+<li>Total PK = Rp47.025.000. Total PM = Rp31.284.000. <strong>Kurang Bayar = Rp15.741.000</strong></li>
+</ol>
+</div>
+</div></div>
+</div>
+
+<!-- ══════════════════════ PERSEDIAAN ══════════════════════ -->
+<div id="persediaan" class="sec">
+<div class="st">Akuntansi Persediaan</div>
+<div class="tags"><span class="tag t">BMP AKM I Modul 6</span><span class="tag g">PSAK 14</span><span class="tag g">PSAK 202</span></div>
+
+<div class="ct">Tiga Metode yang Diizinkan PSAK 14</div>
+<div class="tw"><table>
+<tr><th>Metode</th><th>Kapan Digunakan</th><th>Kelebihan</th><th>Catatan PSAK</th></tr>
+<tr><td><strong>FIFO</strong></td><td>Produk yang cepat usang, produk makanan/teknologi</td><td>Nilai persediaan akhir mendekati harga terkini; relevan dan andal</td><td>Diizinkan PSAK 14</td></tr>
+<tr><td><strong>Average</strong></td><td>Produk homogen, harga stabil</td><td>Lebih stabil, tidak sensitif fluktuasi harga</td><td>Diizinkan PSAK 14</td></tr>
+<tr><td><strong>Identifikasi Khusus</strong></td><td>Persediaan unik, tidak dapat saling menggantikan</td><td>Paling akurat; sesuai PSAK 14 untuk barang tidak dapat dipertukarkan</td><td>Wajib untuk barang tidak dapat dipertukarkan</td></tr>
+</table></div>
+<div class="hb red"><strong>INGAT:</strong> LIFO <u>tidak diperkenankan</u> dalam SAK Indonesia (PSAK 14) sesuai konvergensi IFRS. Jika soal menyebut LIFO, jawab bahwa metode ini dilarang.</div>
+
+<div class="ct">FIFO Perpetual — Alur Langkah demi Langkah</div>
+<ul class="sl">
+<li><span class="sn2">1</span><div>Catat saldo awal dengan layer harga perolehan masing-masing.</div></li>
+<li><span class="sn2">2</span><div>Pembelian: tambah layer baru. Retur pembelian: kurangi dari layer yang sesuai.</div></li>
+<li><span class="sn2">3</span><div>Penjualan: keluarkan dari layer paling lama (FIFO). Hitung HPP dari layer yang dikeluarkan.</div></li>
+<li><span class="sn2">4</span><div>Retur penjualan: kembalikan barang ke persediaan dengan <strong>HPP asal</strong> (bukan harga jual). Catat pengurang pendapatan sebesar harga jual.</div></li>
+<li><span class="sn2">5</span><div>Write-off barang rusak: debit Kerugian Penurunan Nilai Persediaan, kredit Persediaan (@ HPP asal).</div></li>
+</ul>
+
+<div class="ct">Jurnal Lengkap Persediaan</div>
+<div class="fm">PEMBELIAN TUNAI:
+  Persediaan                  [harga pokok]
+      Kas                                    [harga pokok]
+
+PENJUALAN (selalu 2 jurnal):
+  Kas / Piutang Usaha         [harga jual]
+      Penjualan                              [harga jual]
+  HPP                         [harga pokok FIFO]
+      Persediaan                             [harga pokok FIFO]
+
+RETUR PEMBELIAN:
+  Kas / Utang Usaha           [harga pokok retur]
+      Persediaan                             [harga pokok retur]
+
+RETUR PENJUALAN (2 jurnal):
+  Retur & Potongan Penjualan  [harga jual]        <span class="cm">← pengurang pendapatan</span>
+      Kas / Piutang Usaha                    [harga jual]
+  Persediaan                  [HPP asal]           <span class="cm">← kembalikan ke persediaan @ HPP</span>
+      HPP                                    [HPP asal]
+
+WRITE-OFF BARANG RUSAK:
+  Kerugian Penurunan Nilai Persediaan  [HPP barang rusak]
+      Persediaan                                   [HPP barang rusak]</div>
+
+<div class="hb"><strong>Penjualan Bersih vs HPP Bersih:</strong> Penjualan Bersih = Penjualan − Retur Penjualan. HPP Bersih = HPP Penjualan − HPP Retur Penjualan. Laba Kotor = Penjualan Bersih − HPP Bersih.</div>
+
+<div class="ct">Soal Latihan Persediaan <span class="diff c3">C3</span></div>
+<div class="sc"><div class="sh"><span class="sn">Latihan Persediaan-01</span><span class="st2">BMP AKM I | PSAK 14</span></div>
+<div class="sb">
+<div class="q">Saldo awal 200 unit @ Rp8.000. Transaksi: 3 Jan beli 500 unit @ Rp9.000; 8 Jan jual 400 unit @ Rp13.000; 12 Jan retur pembelian 30 unit; 15 Jan beli 300 unit @ Rp10.000; 20 Jan retur penjualan 20 unit; 28 Jan jual 400 unit @ Rp14.000; 31 Jan write-off 25 unit rusak. Gunakan FIFO Perpetual. Hitung HPP, laba kotor, dan persediaan akhir. Buat jurnal.</div>
+<button class="tb" onclick="toggleAnswer(this)">Lihat Kunci</button>
+<div class="an"><div class="al">Kunci Jawaban</div>
+<ol>
+<li>Saldo awal: 200@8.000</li>
+<li>3 Jan beli: saldo 200@8.000 + 500@9.000 = 700 unit</li>
+<li>8 Jan jual 400 (FIFO): 200@8.000 + 200@9.000. HPP = Rp1.600.000 + Rp1.800.000 = <strong>Rp3.400.000</strong>. Sisa: 300@9.000</li>
+<li>12 Jan retur pembelian 30@9.000 = Rp270.000. Sisa: 270@9.000</li>
+<li>15 Jan beli: saldo 270@9.000 + 300@10.000</li>
+<li>20 Jan retur jual 20@9.000 (HPP asal). Saldo: 290@9.000 + 300@10.000</li>
+<li>28 Jan jual 400 (FIFO): 290@9.000 + 110@10.000. HPP = Rp2.610.000 + Rp1.100.000 = <strong>Rp3.710.000</strong>. Sisa: 190@10.000</li>
+<li>31 Jan write-off 25@10.000 = Rp250.000. Saldo akhir: 165@10.000 = <strong>Rp1.650.000</strong></li>
+<li>Total HPP = Rp3.400.000 + Rp3.710.000 − Rp180.000 (retur HPP) = <strong>Rp6.930.000</strong></li>
+<li>Pendapatan kotor: (400×13.000) + (400×14.000) = Rp5.200.000 + Rp5.600.000 = Rp10.800.000</li>
+<li>Penjualan bersih = Rp10.800.000 − (20×13.000) = Rp10.800.000 − Rp260.000 = Rp10.540.000</li>
+<li><strong>Laba kotor = Rp10.540.000 − Rp6.930.000 = Rp3.610.000</strong></li>
+</ol>
+</div>
+</div></div>
+</div>
+
+<!-- ══════════════════════ AUDIT ══════════════════════ -->
+<div id="audit" class="sec">
+<div class="st">Audit & Laporan Auditor Independen</div>
+<div class="tags"><span class="tag t">BMP Auditing I</span><span class="tag g">SA 500, 505, 580, 700, 705</span><span class="tag g">SPAP IAPI</span></div>
+
+<div class="ct">5 Jenis Bukti Audit (SA 500)</div>
+<div class="tw"><table>
+<tr><th>Jenis</th><th>Metode Perolehan</th><th>Contoh</th><th>Kekuatan</th></tr>
+<tr><td>Bukti Fisik</td><td>Observasi, inspeksi langsung</td><td>Stock opname, inspeksi mesin</td><td>Tinggi untuk eksistensi</td></tr>
+<tr><td>Bukti Dokumenter</td><td>Inspeksi dokumen tertulis</td><td>Kontrak, faktur, PO, laporan bank</td><td>Sedang–tinggi tergantung sumber</td></tr>
+<tr><td>Konfirmasi Eksternal</td><td>Surat konfirmasi ke pihak ketiga (SA 505)</td><td>Konfirmasi piutang, saldo bank</td><td>Tinggi (dari pihak independen)</td></tr>
+<tr><td>Prosedur Analitis</td><td>Perbandingan, rasio, tren</td><td>Rasio margin vs industri, fluktuasi tidak wajar</td><td>Sedang</td></tr>
+<tr><td>Inquiry & Representasi</td><td>Wawancara + Surat Representasi Manajemen (SA 580)</td><td>Wawancara CFO, konsultan hukum</td><td>Rendah–sedang (perlu bukti pendukung)</td></tr>
+</table></div>
+
+<div class="ct">4 Jenis Opini Audit (SA 705)</div>
+<div class="cg">
+<div class="cc"><h4>Wajar Tanpa Pengecualian (WTP)</h4><p>Laporan keuangan bebas salah saji material. Bukti audit cukup dan tepat. Tidak ada keterbatasan ruang lingkup.</p></div>
+<div class="cc"><h4>Wajar Dengan Pengecualian (WDP)</h4><p>Salah saji material TAPI <strong>tidak pervasif</strong> (terlokalisir). ATAU keterbatasan ruang lingkup tidak pervasif. SA 705 par.7.</p></div>
+<div class="cc"><h4>Tidak Wajar (Adverse)</h4><p>Salah saji material DAN <strong>pervasif</strong> — mempengaruhi banyak pos dan keseluruhan laporan keuangan.</p></div>
+<div class="cc"><h4>Tidak Memberi Opini (Disclaimer)</h4><p>Keterbatasan ruang lingkup yang material DAN pervasif. Bukan karena ketidaksepakatan atas perlakuan akuntansi.</p></div>
+</div>
+
+<div class="hb"><strong>Kunci membedakan WDP vs Adverse:</strong> Keduanya ada salah saji material. Perbedaannya: jika terlokalisir pada satu-dua pos → WDP. Jika menyebar dan mempengaruhi keseluruhan laporan → Adverse. <strong>Kunci membedakan WDP vs Disclaimer:</strong> WDP = ketidaksepakatan perlakuan akuntansi. Disclaimer = keterbatasan ruang lingkup (auditor tidak bisa mendapat bukti).</div>
+
+<div class="ct">Format LAI — Tiga Paragraf Utama</div>
+<div class="card gold"><div class="ct2">Paragraf Pengantar</div>Menyatakan: apa yang diaudit, periode, dan pernyataan tanggung jawab manajemen vs auditor.</div>
+<div class="card"><div class="ct2">Paragraf Lingkup</div>Menyatakan: standar auditing yang digunakan (SPAP/IAPI), prosedur yang dilaksanakan, pernyataan bahwa audit memberi dasar memadai.</div>
+<div class="card rust"><div class="ct2">Paragraf Pendapat</div>Menyatakan opini auditor. Jika WDP/Adverse: tambahkan paragraf "Dasar Opini Modifikasi" SEBELUM paragraf pendapat.</div>
+
+<div class="ct">Prosedur Audit Pengakuan Pendapatan (PSAK 72)</div>
+<ul class="sl">
+<li><span class="sn2">1</span><div>Identifikasi kewajiban pelaksanaan dalam kontrak — apakah ada lebih dari satu performance obligation.</div></li>
+<li><span class="sn2">2</span><div>Uji variable consideration — klausul diskon/penalti/bonus harus diestimasi dan dibatasi (constraint). Pastikan pendapatan tidak overstated.</div></li>
+<li><span class="sn2">3</span><div>Vouching dan tracing — telusuri dari faktur ke pengiriman dan penerimaan pembayaran.</div></li>
+<li><span class="sn2">4</span><div>Cut-off testing — transaksi 10–15 hari sebelum/sesudah tanggal pelaporan.</div></li>
+<li><span class="sn2">5</span><div>Prosedur analitis — bandingkan pendapatan per periode, ratio terhadap volume fisik.</div></li>
+</ul>
+</div>
+
+<!-- ══════════════════════ AKM II ══════════════════════ -->
+<div id="akm2" class="sec">
+<div class="st">Audit & Laporan Auditor Independen</div>
+<div class="tags"><span class="tag t">BMP AKM II</span><span class="tag g">PSAK 16</span><span class="tag g">PSAK 48</span><span class="tag g">PSAK 57</span><span class="tag g">PSAK 72</span></div>
+
+<div class="ct">Revaluasi Aset Tetap — Semua Skenario (PSAK 16)</div>
+<div class="tw"><table>
+<tr><th>Skenario</th><th>Perlakuan</th><th>Jurnal</th></tr>
+<tr><td>Nilai Wajar > Nilai Buku (pertama kali)</td><td>Surplus → OCI/Ekuitas (Surplus Revaluasi)</td><td>Dr Akum.Dep → Cr Aset; Dr Aset → Cr Surplus Revaluasi</td></tr>
+<tr><td>Nilai Wajar < Nilai Buku (pertama kali)</td><td>Seluruh penurunan → Laba Rugi (PSAK 16 par.40)</td><td>Dr Akum.Dep → Cr Aset; Dr Rugi Penurunan → Cr Aset</td></tr>
+<tr><td>Nilai Wajar < Nilai Buku (ada surplus sebelumnya)</td><td>Pertama hapus surplus di OCI, sisanya ke Laba Rugi</td><td>Dr Surplus Revaluasi → Cr Aset; Dr Rugi → Cr Aset</td></tr>
+<tr><td>Nilai Wajar > Nilai Buku (ada rugi sebelumnya di L/R)</td><td>Pertama pulihkan rugi di L/R, sisanya ke OCI</td><td>Dr Aset → Cr Keuntungan (L/R); Cr Surplus (OCI)</td></tr>
+</table></div>
+
+<div class="fm">Nilai Buku          = Harga Perolehan − Akumulasi Depresiasi
+Akumulasi Dep       = Depresiasi/tahun × Periode Pakai
+Depresiasi Baru     = Nilai Wajar ÷ Sisa Umur Manfaat
+Sisa Umur Manfaat   = Umur Total − Tahun Sudah Dipakai</div>
+
+<div class="ct">Pengungkapan Laporan Keuangan (PSAK/SAK EP)</div>
+<div class="card"><div class="ct2">Prinsip Pengungkapan Penuh (Full Disclosure)</div>
+Semua informasi material yang dapat mempengaruhi keputusan pengguna harus diungkapkan, baik dalam tubuh laporan keuangan maupun catatan atas laporan keuangan (CALK). Ketidakpatuhan pengungkapan berdampak pada: (1) laporan keuangan menyesatkan, (2) opini audit dimodifikasi, (3) sanksi regulator.</div>
+
+<div class="ct">Provisi dan Liabilitas Kontinjensi (PSAK 57)</div>
+<div class="tw"><table>
+<tr><th>Kondisi</th><th>Perlakuan</th><th>Syarat</th></tr>
+<tr><td>Probable + dapat diestimasi</td><td><strong>Catat sebagai Provisi</strong> di neraca</td><td>Kewajiban kini + kemungkinan besar (&gt;50%) + estimasi andal</td></tr>
+<tr><td>Possible (mungkin tapi tidak probable)</td><td><strong>Ungkapkan</strong> di CALK saja, tidak dicatat</td><td>Kemungkinan ada tapi belum &gt;50%</td></tr>
+<tr><td>Remote (sangat kecil kemungkinan)</td><td>Tidak perlu ungkapkan</td><td>—</td></tr>
+</table></div>
+<div class="hb"><strong>Jurnal Provisi:</strong> Dr Beban/Rugi Sengketa → Cr Provisi (liabilitas). Ketika terbayar: Dr Provisi → Cr Kas.</div>
+
+<div class="ct">Informasi Non-Keuangan & ESG</div>
+<div class="cg">
+<div class="cc"><h4>Faktor ESG</h4><p>Environmental (lingkungan), Social (sosial), Governance (tata kelola). Semakin penting dalam keputusan investasi dan penilaian risiko jangka panjang.</p></div>
+<div class="cc"><h4>Relevansi untuk Akuntan</h4><p>Informasi non-keuangan seperti ESG, reputasi, inovasi, dan sumber daya manusia makin kritis. Laporan keberlanjutan (sustainability report) menjadi pelengkap laporan keuangan.</p></div>
+<div class="cc"><h4>Integrated Reporting</h4><p>Tren global menggabungkan informasi keuangan dan non-keuangan dalam satu laporan terintegrasi untuk menggambarkan nilai jangka panjang perusahaan secara komprehensif.</p></div>
+</div>
+
+<div class="ct">Soal Latihan AKM II <span class="diff c4">C4 Analitis</span></div>
+<div class="sc"><div class="sh"><span class="sn">Latihan AKM II-01</span><span class="st2">PSAK 16 Revaluasi</span></div>
+<div class="sb">
+<div class="q">Mesin diperoleh 1 Jan 2019 seharga Rp90 milik, umur 15 tahun, garis lurus. Pada 31 Des 2026, nilai wajar Rp48 miliar. Tidak ada revaluasi sebelumnya. Hitung: (a) nilai buku, (b) dampak revaluasi dan jurnalnya, (c) depresiasi 2027, (d) dampak ke profitabilitas dan DER.</div>
+<button class="tb" onclick="toggleAnswer(this)">Lihat Kunci</button>
+<div class="an"><div class="al">Kunci Jawaban</div>
+<ol>
+<li>Dep/th = Rp90M/15 = Rp6M. Pakai 8 th (2019–2026). Akum Dep = Rp48M. <strong>NB = Rp90M − Rp48M = Rp42M.</strong></li>
+<li>NW Rp48M > NB Rp42M → selisih +Rp6M → <strong>Surplus Revaluasi masuk OCI/Ekuitas.</strong> Jurnal: Dr Akum.Dep 48M/Cr Mesin 48M; Dr Mesin 6M/Cr Surplus Revaluasi 6M.</li>
+<li>Sisa umur = 15−8 = 7 tahun. <strong>Dep 2027 = Rp48M ÷ 7 = Rp6,857M/tahun.</strong></li>
+<li>Surplus Rp6M masuk OCI → ekuitas naik → DER membaik. Dep 2027 naik dari Rp6M ke Rp6,857M → laba 2027 sedikit lebih kecil. Namun tidak ada dampak L/R tahun 2026 karena surplus masuk OCI.</li>
+</ol>
+</div>
+</div></div>
+</div>
+
+<!-- ══════════════════════ MANAJEMEN ══════════════════════ -->
+<div id="manajemen" class="sec">
+<div class="st">Akuntansi Manajemen & Biaya</div>
+<div class="tags"><span class="tag t">BMP Akuntansi Manajemen</span><span class="tag t">BMP Akuntansi Biaya Modul 9</span><span class="tag g">Hansen & Mowen, Cost Management</span></div>
+
+<div class="ct">Analisis CVP — Semua Formula</div>
+<div class="fm">Contribution Margin (CM)  = Harga Jual − Biaya Variabel
+CM Ratio                  = CM ÷ Harga Jual × 100%
+
+<span class="cm">── SATU PRODUK ──────────────────────────────────────────</span>
+BEP unit    = Biaya Tetap ÷ CM per Unit
+BEP rupiah  = Biaya Tetap ÷ CM Ratio
+Target unit = (Biaya Tetap + Target Laba) ÷ CM per Unit
+Target Rp   = (Biaya Tetap + Target Laba) ÷ CM Ratio
+
+<span class="cm">── BAURAN PRODUK (Multiple Products) ───────────────────</span>
+WACM = Σ (CM_i × Proporsi_i)
+Total BEP   = Biaya Tetap ÷ WACM
+BEP_produk  = Total BEP × Proporsi produk
+
+Total Target = (Biaya Tetap + Target Laba) ÷ WACM
+Target_produk = Total Target × Proporsi produk</div>
+
+<div class="ct">Activity Based Costing (ABC) — Langkah Sistematis</div>
+<ul class="sl">
+<li><span class="sn2">1</span><div><strong>Identifikasi aktivitas</strong> overhead yang ada (setup, pemesanan, perawatan, pengemasan, dll.)</div></li>
+<li><span class="sn2">2</span><div><strong>Tentukan cost driver</strong> yang paling mencerminkan hubungan kausal antara aktivitas dan produk.</div></li>
+<li><span class="sn2">3</span><div><strong>Hitung tarif aktivitas</strong> = Biaya Overhead Aktivitas ÷ Kapasitas Total Cost Driver.</div></li>
+<li><span class="sn2">4</span><div><strong>Alokasikan ke produk</strong> = Tarif × Konsumsi aktivitas oleh produk tersebut.</div></li>
+<li><span class="sn2">5</span><div><strong>Hitung total biaya produk</strong> = BBL + TKL + Total Overhead ABC ÷ Unit.</div></li>
+</ul>
+
+<div class="fm">Tarif Aktivitas = Biaya OH Aktivitas ÷ Kapasitas Cost Driver
+OH per produk  = Σ (Tarif_aktivitas × Konsumsi_produk)
+Biaya per unit = BBL + TKL + (OH produk ÷ Unit produksi)
+
+<span class="cm">Metode Tradisional (pembanding):</span>
+Tarif OH = Total OH ÷ Kapasitas JKL Normal
+OH per produk = Tarif OH × JKL per unit × unit produksi</div>
+
+<div class="ct">Distorsi Biaya: Tradisional vs ABC</div>
+<div class="hb"><strong>Undercost:</strong> Produk kompleks/volume rendah dibebankan overhead terlalu kecil → laba tampak lebih besar dari kenyataan. <strong>Overcost:</strong> Produk sederhana/volume tinggi dibebankan overhead terlalu besar → laba tampak lebih kecil. ABC mengoreksi kedua distorsi ini dengan menggunakan cost driver yang mencerminkan konsumsi aktual.</div>
+
+<div class="ct">Soal Latihan ABC <span class="diff c3">C3</span></div>
+<div class="sc"><div class="sh"><span class="sn">Latihan ABC-01</span><span class="st2">BMP Akuntansi Biaya Modul 9</span></div>
+<div class="sb">
+<div class="q">PT Maju Produksi membuat Produk X (5.000 unit) dan Y (10.000 unit). Overhead: Setup Rp500 juta/200 setup, Inspeksi Rp300 juta/6.000 inspeksi, Pengemasan Rp200 juta/4.000 jam. Konsumsi: X (setup 80, inspeksi 2.400, kemas 1.600), Y (setup 120, inspeksi 3.600, kemas 2.400). BBL: X Rp800.000, Y Rp500.000. TKL: X Rp300.000, Y Rp200.000. JKL per unit: X 0,5 jam, Y 0,3 jam. Kap normal 5.000 JKL. Hitung biaya per unit tradisional dan ABC.</div>
+<button class="tb" onclick="toggleAnswer(this)">Lihat Kunci</button>
+<div class="an"><div class="al">Kunci Jawaban</div>
+<p><strong>Tradisional:</strong> Total OH = Rp1.000 juta. Tarif = Rp1.000 juta ÷ 5.000 = Rp200.000/JKL.</p>
+<ul>
+<li>X: 0,5 × Rp200.000 = Rp100.000/unit. Total = Rp800.000 + Rp300.000 + Rp100.000 = <strong>Rp1.200.000/unit</strong></li>
+<li>Y: 0,3 × Rp200.000 = Rp60.000/unit. Total = Rp500.000 + Rp200.000 + Rp60.000 = <strong>Rp760.000/unit</strong></li>
+</ul>
+<p><strong>ABC Tarif:</strong> Setup Rp2,5 juta/setup; Inspeksi Rp50.000/inspeksi; Kemas Rp50.000/jam.</p>
+<ul>
+<li>X OH = (80×2,5M)+(2.400×50.000)+(1.600×50.000) = 200M+120M+80M = Rp400 juta → Rp80.000/unit</li>
+<li>Y OH = (120×2,5M)+(3.600×50.000)+(2.400×50.000) = 300M+180M+120M = Rp600 juta → Rp60.000/unit</li>
+<li>X ABC: Rp800.000+Rp300.000+Rp80.000 = <strong>Rp1.180.000/unit</strong></li>
+<li>Y ABC: Rp500.000+Rp200.000+Rp60.000 = <strong>Rp760.000/unit</strong></li>
+</ul>
+</div>
+</div></div>
+</div>
+
+<!-- ══════════════════════ SIA ══════════════════════ -->
+<div id="sia" class="sec">
+<div class="st">SIA — Siklus Pengeluaran</div>
+<div class="tags"><span class="tag t">BMP SIA Modul 6</span><span class="tag g">Romney & Steinbart (2019)</span><span class="tag g">Hall (2015)</span></div>
+
+<div class="ct">6 Tahapan Siklus Pengeluaran</div>
+<ul class="sl">
+<li><span class="sn2">1</span><div><strong>Purchase Requisition (PR)</strong> — Dokumen internal dari bagian yang membutuhkan. Pemicu resmi proses pengadaan. Harus diotorisasi supervisor.</div></li>
+<li><span class="sn2">2</span><div><strong>Purchase Order (PO)</strong> — Diterbitkan bagian pembelian ke pemasok dari approved vendor list. Dokumen eksternal yang mengikat secara hukum.</div></li>
+<li><span class="sn2">3</span><div><strong>Receiving Report (RR)</strong> — Bagian penerimaan memverifikasi fisik barang (kuantitas & kualitas) dan membuat laporan. Dasar three-way matching.</div></li>
+<li><span class="sn2">4</span><div><strong>Invoice Processing</strong> — Three-way matching: PR + PO + RR vs Invoice pemasok. Wajib konsisten sebelum kewajiban diakui.</div></li>
+<li><span class="sn2">5</span><div><strong>Accounts Payable (AP)</strong> — Pencatatan utang: Dr Persediaan/Beban → Cr Utang Usaha. Dilakukan setelah three-way matching selesai.</div></li>
+<li><span class="sn2">6</span><div><strong>Cash Disbursement</strong> — Pembayaran via transfer bank dengan otorisasi dua tanda tangan untuk nilai material. Cap LUNAS pada semua dokumen.</div></li>
+</ul>
+
+<div class="ct">Ancaman & Pengendalian Internal Lengkap</div>
+<div class="tw"><table>
+<tr><th>Tahap</th><th>Ancaman Utama</th><th>Pengendalian Internal</th></tr>
+<tr><td>PR</td><td>Permintaan fiktif; kuantitas inflated; pembelian tidak perlu</td><td>Otorisasi supervisor; batas maksimal per PR; review level stok secara berkala</td></tr>
+<tr><td>PO</td><td>Pemasok tidak terotorisasi; harga dinaikkan untuk kickback; PO fiktif</td><td>Approved vendor list; otorisasi dua level untuk PO &gt; nilai tertentu; pemisahan fungsi pembelian dari penerimaan</td></tr>
+<tr><td>Receiving</td><td>RR dibuat sesuai PO tanpa hitung fisik; kolusi dengan pemasok</td><td><strong>Blind receiving</strong> — tidak boleh lihat kuantitas PO sebelum hitung sendiri; tanda tangan petugas penerimaan; sampel kualitas independen</td></tr>
+<tr><td>Invoice</td><td>Invoice ganda; invoice fiktif; nilai berbeda PO</td><td>Three-way matching wajib; sistem ERP tolak duplikasi; nomor invoice dicatat unik</td></tr>
+<tr><td>AP</td><td>Catat ke rekening salah; manipulasi saldo utang</td><td>Rekonsiliasi bulanan; segregation of duties antara pencatat dan pembayar; review supervisor</td></tr>
+<tr><td>Pembayaran</td><td>Pembayaran ganda; rekening penerima salah; transfer tidak sah</td><td>Otorisasi dua tanda tangan; konfirmasi rekening independen; cap LUNAS setelah bayar; laporan pengeluaran kas harian</td></tr>
+</table></div>
+
+<div class="hb"><strong>Prinsip Kritis SIA:</strong> (1) <strong>Segregation of Duties</strong> — orang yang mencatat tidak boleh yang membayar. (2) <strong>Blind Receiving</strong> — penerimaan fisik harus independen dari dokumen PO. (3) <strong>Three-way Matching</strong> — PR + PO + RR harus cocok dengan Invoice sebelum pembayaran. Ketiga prinsip ini sering muncul dalam soal analisis kasus SIA.</div>
+</div>
+
+<!-- ══════════════════════ ETIKA ══════════════════════ -->
+<div id="etika" class="sec">
+<div class="st">Kode Etik Akuntan Indonesia</div>
+<div class="tags"><span class="tag t">BMP Etika & Anti Korupsi</span><span class="tag g">KEPAP IAI 2024</span><span class="tag g">UU 31/1999 jo. 20/2001</span></div>
+
+<div class="ct">Lima Prinsip Fundamental Etika (KEPAP IAI 2024)</div>
+<div class="cg">
+<div class="cc"><h4>1. Integritas</h4><p>Lugas, jujur, tegas dalam semua hubungan profesional. Tidak membuat pernyataan menyesatkan. Tidak berbohong dalam laporan resmi meski ada tekanan.</p></div>
+<div class="cc"><h4>2. Objektivitas</h4><p>Tidak membiarkan bias, konflik kepentingan, atau tekanan pihak lain memengaruhi pertimbangan profesional. Tawaran bonus = konflik kepentingan.</p></div>
+<div class="cc"><h4>3. Kompetensi & Kehati-hatian</h4><p>Mempertahankan pengetahuan profesional. Bertindak sesuai standar teknis. Mengabaikan hasil analisis sendiri = melanggar prinsip ini.</p></div>
+<div class="cc"><h4>4. Kerahasiaan</h4><p>Jaga kerahasiaan informasi profesional — KECUALI untuk menutupi tindak pidana. Kerahasiaan tidak boleh disalahgunakan untuk fraud.</p></div>
+<div class="cc"><h4>5. Perilaku Profesional</h4><p>Patuhi hukum dan peraturan. Hindari tindakan yang mendiskreditkan profesi. Berkomplot dalam pemalsuan = melanggar prinsip ini.</p></div>
+</div>
+
+<div class="ct">Tiga Jenis Ancaman Independensi Auditor</div>
+<div class="tw"><table>
+<tr><th>Ancaman</th><th>Contoh Kasus</th><th>Safeguard</th></tr>
+<tr><td><strong>Self-Interest</strong></td><td>KAP terima &gt;20-28% pendapatan dari satu klien; auditor pegang saham klien</td><td>Rotasi partner; second review independen; pertimbangkan mundur dari penugasan</td></tr>
+<tr><td><strong>Intimidation</strong></td><td>Klien ancam ganti auditor jika opini tidak WTP; tekanan untuk ubah temuan</td><td>Dokumentasikan tekanan; laporkan ke Komite Audit (SA 260); opini tetap berdasar fakta</td></tr>
+<tr><td><strong>Self-Review</strong></td><td>KAP audit sekaligus berikan jasa konsultasi material ke klien yang sama</td><td>Tolak jasa non-audit material; pisahkan tim secara ketat (KEPAP)</td></tr>
+</table></div>
+
+<div class="ct">Kerangka NOCLAR — Respons terhadap Ketidakpatuhan Hukum</div>
+<ul class="sl">
+<li><span class="sn2">1</span><div>Panyi sifat dan dampak ketidakpatuhan — apakah sudah terjadi atau baru akan terjadi.</div></li>
+<li><span class="sn2">2</span><div>Diskusikan dengan atasan langsung <em>(kecuali atasan adalah pihak yang terlibat)</em>.</div></li>
+<li><span class="sn2">3</span><div>Eskalasi ke manajemen lebih tinggi atau Komite Audit.</div></li>
+<li><span class="sn2">4</span><div>Jika tidak ada tindakan yang memadai → pertimbangkan mundur dan/atau laporkan ke regulator.</div></li>
+<li><span class="sn2">5</span><div>Dokumentasikan seluruh proses dan keputusan yang diambil sebagai bukti perlindungan diri.</div></li>
+</ul>
+
+<div class="ct">Tabel Sanksi Pelanggaran</div>
+<div class="tw"><table>
+<tr><th>Pelanggaran</th><th>Dasar Hukum</th><th>Sanksi Maksimal</th></tr>
+<tr><td>Pemalsuan laporan keuangan</td><td>KUHP Pasal 263</td><td>Penjara 6 tahun</td></tr>
+<tr><td>Penipuan investor pasar modal</td><td>UU Pasar Modal No.8/1995 Pasal 90</td><td>Penjara 10 tahun + denda Rp15 miliar</td></tr>
+<tr><td>Korupsi/penyalahgunaan wewenang</td><td>UU 31/1999 jo. 20/2001</td><td>Penjara 4–20 tahun + denda Rp200 juta–Rp1 miIiar</td></tr>
+<tr><td>Gratifikasi (terima imbalan)</td><td>UU 20/2001 Pasal 12B</td><td>Penjara 20 tahun</td></tr>
+<tr><td>Sanksi profesional</td><td>KEPAP IAI</td><td>Pencabutan izin praktik; blacklist profesi</td></tr>
+</table></div>
+</div>
+
+<!-- ══════════════════════ BANK SOAL ══════════════════════ -->
+<div id="soal" class="sec">
+<div class="st">Bank Soal Esai — 40+ Soal Berlevel</div>
+<p style="margin-bottom:1rem;">Soal diurutkan dari C2 (memahami) → C3 (menerapkan) → C4 (menganalisis) → Integratif. Klik <strong>"Lihat Kunci"</strong> untuk panduan jawaban.</p>
+
+<!-- PPN SOAL -->
+<div class="sub">PPN & PPnBM</div>
+
+<div class="sc"><div class="sh"><span class="sn">PPN-01 <span class="diff c2">C2</span></span><span class="st2">Konsep Dasar PPN</span></div>
+<div class="sb"><div class="q">Jelaskan perbedaan antara DPP biasa dan DPP Nilai Lain dalam PPN. Kapan masing-masing digunakan? Berikan dasar hukumnya.</div>
+<button class="tb" onclick="toggleAnswer(this)">Lihat Kunci</button>
+<div class="an"><div class="al">Poin Kunci</div><ul>
+<li>DPP Biasa = harga jual/nilai transaksi ketika harga BELUM termasuk PPN</li>
+<li>DPP Nilai Lain = 11/12 × harga → digunakan ketika harga sudah termasuk PPN, atau untuk penyerahan cuma-cuma/pemakaian sendiri (PMK 75/2010)</li>
+<li>Matematika 11/12: Harga = DPP × 1,11 → DPP = Harga/1,11 = Harga × (100/111) ≈ Harga × (11/12)</li>
+<li>Sebutkan kapan pakai masing-masing dengan contoh transaksi nyata</li>
+</ul></div></div></div>
+
+<div class="sc"><div class="sh"><span class="sn">PPN-02 <span class="diff c3">C3</span></span><span class="st2">Hitung PPN Lengkap</span></div>
+<div class="sb"><div class="q">PT Karya Gemilang melakukan: (1) Jual BKP ke distributor DN Rp800 juta; (2) Ekspor ke Singapura Rp300 juta; (3) Beri sampel gratis harga jual Rp50 juta; (4) Beli bahan baku dari vendor DN Rp200 juta (harga sudah termasuk PPN); (5) Bayar jasa konsultan asing yang dimanfaatkan di Indonesia Rp180 juta; (6) Beli PC untuk keperluan pribadi direktur Rp30 juta. Hitung PK, PM yang dapat dikreditkan, dan kurang/lebih bayar.</div>
+<button class="tb" onclick="toggleAnswer(this)">Lihat Kunci</button>
+<div class="an"><div class="al">Poin Kunci</div><ul>
+<li>PK: Transaksi 1: 11%×Rp800M=Rp88M; Transaksi 2: 0%; Transaksi 3: 11%×(11/12×Rp50M)=Rp5,04M. Total PK ≈ Rp93,04M</li>
+<li>PM dapat dikreditkan: Transaksi 4: DPP=11/12×Rp200M=Rp183,3M → PM=Rp20,17M; Transaksi 5 (self-assessed): 11%×Rp180M=Rp19,8M. Total PM ≈ Rp39,97M</li>
+<li>Transaksi 6 (PC untuk direktur): PM TIDAK dapat dikreditkan (Pasal 9 ayat 8 — kepentingan pribadi)</li>
+<li>Kurang Bayar = Rp93,04M − Rp39,97M ≈ Rp53,07M</li>
+</ul></div></div></div>
+
+<div class="sc"><div class="sh"><span class="sn">PPN-03 <span class="diff c4">C4</span></span><span class="st2">Analisis Kasus PPN Kompleks</span></div>
+<div class="sb"><div class="q">PT Tech Global menyerahkan software game senilai Rp500 juta kepada seluruh karyawannya sebagai bonus akhir tahun, dan menyerahkan hasil produksi Rp300 juta ke Cabang Surabaya yang sudah dikukuhkan sebagai PKP tersendiri, serta Rp150 juta ke Cabang Jakarta yang merupakan satu PKP dengan pusat. Analisis perlakuan PPN untuk masing-masing penyerahan dan hitung total Pajak Keluaran. Jelaskan perbedaan perlakuan Cabang Surabaya vs Cabang Jakarta.</div>
+<button class="tb" onclick="toggleAnswer(this)">Lihat Kunci</button>
+<div class="an"><div class="al">Poin Kunci</div><ul>
+<li>Bonus ke karyawan = penyerahan cuma-cuma terutang PPN. DPP = 11/12 × Rp500M = Rp458,3M. PK = Rp50,4M</li>
+<li>Cabang Surabaya (PKP berbeda) = penyerahan BKP antar PKP → terutang PPN 11% × Rp300M = Rp33M</li>
+<li>Cabang Jakarta (satu PKP) = bukan penyerahan, hanya pemindahan internal → TIDAK terutang PPN</li>
+<li>Perbedaan: status PKP menentukan. Cabang yang sudah dikukuhkan PKP tersendiri → ada penyerahan. Cabang satu PKP → tidak ada penyerahan.</li>
+<li>Total PK = Rp50,4M + Rp33M = Rp83,4M</li>
+</ul></div></div></div>
+
+<!-- PERSEDIAAN SOAL -->
+<div class="sub">Persediaan</div>
+
+<div class="sc"><div class="sh"><span class="sn">INV-01 <span class="diff c2">C2</span></span><span class="st2">Konsep Metode Persediaan</span></div>
+<div class="sb"><div class="q">Jelaskan mengapa metode identifikasi khusus lebih tepat digunakan untuk produk software game dibandingkan metode FIFO atau rata-rata. Sebutkan ketentuan PSAK 14 yang mendasarinya.</div>
+<button class="tb" onclick="toggleAnswer(this)">Lihat Kunci</button>
+<div class="an"><div class="al">Poin Kunci</div><ul>
+<li>Identifikasi khusus: setiap unit dilacak individual — sesuai untuk barang yang tidak dapat saling menggantikan (PSAK 14 par. 23)</li>
+<li>Software game: setiap judul bersifat unik, biaya produksi berbeda, tidak bisa dipertukarkan satu sama lain</li>
+<li>FIFO/Average cocok untuk barang homogen yang dapat saling menggantikan</li>
+<li>PSAK 14 mewajibkan identifikasi khusus untuk persediaan yang tidak dapat dipertukarkan</li>
+<li>LIFO tidak diperkenankan (PSAK 14 — konvergensi IFRS)</li>
+</ul></div></div></div>
+
+<div class="sc"><div class="sh"><span class="sn">INV-02 <span class="diff c4">C4</span></span><span class="st2">Analisis Manajemen Laba via Metode Persediaan</span></div>
+<div class="sb"><div class="q">CFO PT Teknologi Prima mengusulkan perubahan metode persediaan dari FIFO ke Rata-rata dengan alasan "lebih mencerminkan arus biaya yang sebenarnya", namun data menunjukkan tidak ada perubahan cara penyimpanan/penggunaan persediaan. Perubahan ini akan menurunkan HPP dan meningkatkan laba signifikan. Analisis: (a) Apakah perubahan dapat dibenarkan? (b) Apakah ada indikasi manajemen laba?</div>
+<button class="tb" onclick="toggleAnswer(this)">Lihat Kunci</button>
+<div class="an"><div class="al">Poin Kunci</div><ul>
+<li>(a) PSAK 25: perubahan kebijakan akuntansi hanya boleh jika diwajibkan PSAK atau menghasilkan informasi lebih andal/relevan. Tidak ada perubahan substansial → alasan tidak sah.</li>
+<li>PSAK 25 juga mewajibkan pengungkapan dampak kuantitatif. Jika tidak diungkap → pelanggaran pengungkapan.</li>
+<li>(b) Indikasi manajemen laba: (i) motivasi berbasis bonus/target (ii) perubahan tanpa dasar ekonomi (iii) dampak langsung pada laba (iv) tidak ada justifikasi operasional. Ini adalah earnings management via accruals/metode.</li>
+<li>Auditor harus mengevaluasi sebagai risiko kecurangan (SA 240) dan pertimbangkan modifikasi opini jika perubahan tidak tepat dan dampaknya material.</li>
+</ul></div></div></div>
+
+<!-- AUDIT SOAL -->
+<div class="sub">Audit & LAI</div>
+
+<div class="sc"><div class="sh"><span class="sn">AUD-01 <span class="diff c2">C2</span></span><span class="st2">Jenis Opini Audit</span></div>
+<div class="sb"><div class="q">Jelaskan perbedaan antara opini Wajar Dengan Pengecualian (WDP) dan opini Tidak Wajar (Adverse). Kapan masing-masing digunakan? Apa yang dimaksud dengan "pervasif" dalam SA 705?</div>
+<button class="tb" onclick="toggleAnswer(this)">Lihat Kunci</button>
+<div class="an"><div class="al">Poin Kunci</div><ul>
+<li>WDP: salah saji material tapi TIDAK pervasif (SA 705 par.7)</li>
+<li>Adverse: salah saji material DAN pervasif — mempengaruhi keseluruhan LK</li>
+<li>Pervasif: dampak menyebar ke banyak pos, bukan terlokalisir. Contoh: salah saji asumsi going concern = pervasif. Tidak catat satu provisi = tidak pervasif.</li>
+<li>Disclaimer: berbeda dari keduanya — bukan karena salah saji tapi karena keterbatasan ruang lingkup (auditor tidak bisa dapat bukti)</li>
+<li>Sebutkan SA 705 secara eksplisit</li>
+</ul></div></div></div>
+
+<div class="sc"><div class="sh"><span class="sn">AUD-02 <span class="diff c3">C3</span></span><span class="st2">Susun LAI WDP</span></div>
+<div class="sb"><div class="q">PT Maju Jaya tidak mencatat provisi atas gugatan lingkungan yang probable sebesar Rp400 miliar (PSAK 57). Manajemen menolak mencatat. Buatlah contoh Laporan Auditor Independen dengan format tiga paragraf yang tepat untuk situasi ini.</div>
+<button class="tb" onclick="toggleAnswer(this)">Lihat Kunci</button>
+<div class="an"><div class="al">Struktur LAI yang Benar</div><ul>
+<li><strong>Paragraf Pengantar:</strong> "Kami telah mengaudit laporan keuangan PT Maju Jaya... Laporan keuangan adalah tanggung jawab manajemen..."</li>
+<li><strong>Paragraf Lingkup:</strong> "Kami melaksanakan audit berdasarkan standar auditing IAPI... memperoleh keyakinan memadai..."</li>
+<li><strong>TAMBAHKAN sebelum Pendapat: Paragraf Dasar Opini WDP</strong> → jelaskan tidak dicatatnya provisi Rp400M, PSAK 57 yang dilanggar, dan dampak quantitatif (liabilitas understated, laba overstated)</li>
+<li><strong>Paragraf Pendapat:</strong> "Menurut pendapat kami, KECUALI untuk dampak hal yang dijelaskan di paragraf Dasar Opini WDP, laporan keuangan menyajikan secara wajar..."</li>
+<li>Opini: WDP karena salah saji material (Rp400M) tapi tidak pervasif (satu pos provisi)</li>
+</ul></div></div></div>
+
+<div class="sc"><div class="sh"><span class="sn">AUD-03 <span class="diff c4">C4</span></span><span class="st2">Analisis Ancaman Independensi</span></div>
+<div class="sb"><div class="q">KAP Andalan Sejati mengaudit PT Karya Bangsa. KAP mendapat 32% pendapatannya dari PT Karya Bangsa. Selama audit, klien menawarkan proyek konsultasi sistem IT senilai Rp25 miliar kepada KAP. Direktur Keuangan klien juga mengancam akan mengganti KAP jika laporan tidak memberikan opini WTP. Identifikasi seluruh ancaman independensi dan rekomendasi tindakan yang harus diambil KAP sesuai KEPAP.</div>
+<button class="tb" onclick="toggleAnswer(this)">Lihat Kunci</button>
+<div class="an"><div class="al">Poin Kunci</div><ul>
+<li>Self-Interest Threat: 32% pendapatan dari satu klien melebihi ambang kewajaran → pertimbangkan safeguard atau mundur</li>
+<li>Self-Review Threat: tawaran konsultasi IT Rp25M → KAP akan mengaudit hasil pekerjaannya sendiri → TOLAK (KEPAP)</li>
+<li>Intimidation Threat: ancaman ganti auditor → dokumentasikan, laporkan ke Komite Audit (SA 260), tolak tekanan</li>
+<li>Tindakan: tolak proyek konsultasi; dokumentasikan tekanan Direktur Keuangan; laporkan ke Komite Audit; jika tidak ditangani → mundur dan laporkan ke OJK/IAPI</li>
+<li>Opini harus tetap berdasarkan bukti audit — provisi wajib dicatat</li>
+</ul></div></div></div>
+
+<!-- AKM II SOAL -->
+<div class="sub">AKM II — Revaluasi & Pengungkapan</div>
+
+<div class="sc"><div class="sh"><span class="sn">AKM-01 <span class="diff c3">C3</span></span><span class="st2">Revaluasi Lengkap 3 Aset</span></div>
+<div class="sb"><div class="q">PT Global Tech memiliki: Gedung (perolehan 1/1/2019, Rp60M, umur 10 tahun); Mesin A (1/1/2021, Rp80M, umur 20 tahun); Mesin B (1/1/2020, Rp100M, umur 20 tahun, depresiasi Rp5M/tahun). Nilai wajar 31/12/2026: Gedung Rp8M, Mesin A Rp65M, Mesin B Rp58M. Tidak ada revaluasi sebelumnya. Hitung: (a) akumulasi depresiasi, (b) nilai buku, (c) dampak revaluasi & jurnal, (d) depresiasi 2027.</div>
+<button class="tb" onclick="toggleAnswer(this)">Lihat Kunci</button>
+<div class="an"><div class="al">Kunci Jawaban</div><ul>
+<li>Gedung: dep/th=Rp6M, pakai 8 th, akum=Rp48M, NB=Rp12M. NW Rp8M &lt; NB → rugi Rp4M ke L/R. Dep 2027=Rp8M/2=Rp4M.</li>
+<li>Mesin A: dep/th=Rp4M, pakai 6 th, akum=Rp24M, NB=Rp56M. NW Rp65M &gt; NB → surplus Rp9M ke OCI. Dep 2027=Rp65M/14=Rp4,64M.</li>
+<li>Mesin B: dep/th=Rp5M (sesuai soal), pakai 7 th, akum=Rp35M, NB=Rp65M. NW Rp58M &lt; NB → rugi Rp7M ke L/R. Dep 2027=Rp58M/13=Rp4,46M.</li>
+<li>Total: Surplus OCI +Rp9M; Total Rugi L/R −Rp11M; Net ekuitas turun Rp2M setelah memperhitungkan keduanya.</li>
+</ul></div></div></div>
+
+<!-- MANAJEMEN SOAL -->
+<div class="sub">Akuntansi Manajemen</div>
+
+<div class="sc"><div class="sh"><span class="sn">MGT-01 <span class="diff c3">C3</span></span><span class="st2">BEP Bauran Produk</span></div>
+<div class="sb"><div class="q">PT Elektronik Prima memproduksi: Speaker (harga Rp120.000, BV Rp80.000, proporsi 50%), Headset (harga Rp90.000, BV Rp60.000, proporsi 30%), Earphone (harga Rp50.000, BV Rp40.000, proporsi 20%). Biaya tetap Rp1.170.000.000. (a) Hitung WACM. (b) Hitung BEP per produk. (c) Target laba Rp585.000.000 dengan tambahan iklan Rp195.000.000 — berapa unit per produk? (d) Apakah kapasitas 50.000 unit cukup?</div>
+<button class="tb" onclick="toggleAnswer(this)">Lihat Kunci</button>
+<div class="an"><div class="al">Kunci Jawaban</div><ul>
+<li>CM: Speaker Rp40.000, Headset Rp30.000, Earphone Rp10.000</li>
+<li>WACM = (40.000×0,5)+(30.000×0,3)+(10.000×0,2) = 20.000+9.000+2.000 = <strong>Rp31.000</strong></li>
+<li>BEP = Rp1.170M÷Rp31.000 = <strong>37.742 unit</strong>. Speaker: 18.871; Headset: 11.323; Earphone: 7.548</li>
+<li>Target: (Rp1.170M+Rp195M+Rp585M)÷Rp31.000 = Rp1.950M÷Rp31.000 = <strong>62.903 unit</strong></li>
+<li>62.903 &gt; 50.000 → <strong>TIDAK cukup</strong>. Laba maks = 50.000×Rp31.000−Rp1.365M = Rp1.550M−Rp1.365M = Rp185M &lt; target Rp585M. Shortfall Rp400M.</li>
+</ul></div></div></div>
+
+<!-- SIA SOAL -->
+<div class="sub">SIA Siklus Pengeluaran</div>
+
+<div class="sc"><div class="sh"><span class="sn">SIA-01 <span class="diff c4">C4</span></span><span class="st2">Analisis Kelemahan Pengendalian</span></div>
+<div class="sb"><div class="q">PT Manufaktur Sejati memiliki kondisi: (a) Bagian pembelian juga menerima barang dan mencatat utang, (b) Invoice pemasok langsung diproses tanpa verifikasi PO dan RR, (c) Pembayaran dilakukan oleh satu orang tanpa otorisasi kedua. Identifikasi kelemahan pengendalian, potensi kecurangan yang muncul, dan rekomendasi perbaikan untuk setiap kondisi.</div>
+<button class="tb" onclick="toggleAnswer(this)">Lihat Kunci</button>
+<div class="an"><div class="al">Poin Kunci</div><ul>
+<li>(a) Pelanggaran segregation of duties. Risiko: pembelian fiktif atau markup harga untuk kickback tanpa ada yang mengawasi. Perbaikan: pisahkan fungsi pembelian, penerimaan, dan pencatatan AP ke 3 bagian berbeda.</li>
+<li>(b) Tidak ada three-way matching. Risiko: pembayaran untuk barang tidak diterima, invoice ganda/fiktif. Perbaikan: wajibkan three-way matching PR+PO+RR vs Invoice sebelum AP dicatat.</li>
+<li>(c) Tidak ada dual control. Risiko: pembayaran tidak sah, penggelapan kas. Perbaikan: otorisasi dua tanda tangan untuk nilai di atas batas tertentu; pisahkan pembuat voucher dari yang menandatangani cek/transfer.</li>
+</ul></div></div></div>
+
+<!-- ETIKA SOAL -->
+<div class="sub">Etika Profesi Akuntan</div>
+
+<div class="sc"><div class="sh"><span class="sn">ETK-01 <span class="diff c3">C3</span></span><span class="st2">Analisis Dilema Etika</span></div>
+<div class="sb"><div class="q">Budi adalah akuntan internal perusahaan. Ia menemukan bahwa direktur keuangan memajukan pengakuan pendapatan Rp200 miliar dari kontrak yang baru akan dieksekusi tahun depan (melanggar PSAK 72), untuk memenuhi target bonus. Direktur menawarkan promosi jabatan jika Budi tidak melaporkan temuan ini. (a) Identifikasi dilema etis. (b) Prinsip KEPAP yang terancam. (c) Langkah konkret Budi. (d) Konsekuensi jika Budi menerima tawaran.</div>
+<button class="tb" onclick="toggleAnswer(this)">Lihat Kunci</button>
+<div class="an"><div class="al">Poin Kunci</div><ul>
+<li>(a) Konflik: integritas profesional vs keuntungan pribadi (promosi). Berdampak ke laporan keuangan eksternal dan investor.</li>
+<li>(b) Integritas (diminta berbohong), Objektivitas (promosi = konflik kepentingan), Perilaku Profesional (berkomplot melanggar PSAK 72).</li>
+<li>(c) Dokumentasikan tekanan → pertahankan temuan → laporkan ke Komite Audit → tolak promosi → konsultasi IAI/penasihat hukum → whistleblowing jika perlu.</li>
+<li>(d) Sanksi: pencabutan sertifikasi akuntan; tuntutan pidana (KUHP 263 pemalsuan dokumen); gratifikasi (UU 20/2001 Pasal 12B); kerusakan reputasi permanen.</li>
+</ul></div></div></div>
+
+<!-- INTEGRATIF -->
+<div class="sub">★ Soal Integratif (Tingkat UKT)</div>
+
+<div class="sc"><div class="sh"><span class="sn">INT-01 <span class="diff int">Integratif</span></span><span class="st2">PPN + Persediaan + Etika</span></div>
+<div class="sb"><div class="q">PT Teknologi Nusantara: (1) Menjual software senilai Rp500 juta ke distributor DN dan mengekspor hardware Rp300 juta ke Jepang. (2) CFO mengusulkan ubah metode persediaan dari FIFO ke Average tanpa alasan ekonomi yang valid, hanya karena akan menurunkan HPP dan menaikkan laba untuk memenuhi target. (3) Auditor menemukan situasi ini dan mendapat tekanan dari CFO untuk tidak mempermasalahkannya. Analisis: (a) PPN yang terutang, (b) keabsahan perubahan metode dan implikasinya, (c) sikap auditor dan opini yang tepat.</div>
+<button class="tb" onclick="toggleAnswer(this)">Lihat Kunci</button>
+<div class="an"><div class="al">Framework Jawaban Integratif</div><ul>
+<li>(a) PPN: Penjualan DN Rp500M → PK 11%=Rp55M. Ekspor Rp300M → PK 0%. Total PK = Rp55M. (Hubungkan dengan ketentuan UU PPN).</li>
+<li>(b) PSAK 25: perubahan tidak sah karena tidak ada dasar ekonomi. Ini manajemen laba. Auditor harus uji sebagai risiko kecurangan (SA 240). Jika material dan manajemen menolak koreksi → WDP minimum, bisa Adverse jika pervasif.</li>
+<li>(c) Auditor: tangani tekanan sebagai Intimidation Threat (KEPAP). Dokumentasikan. Laporkan ke Komite Audit (SA 260). Opini: WDP jika dampak perubahan metode material tidak pervasif. Jika manajemen tetap menolak → Adverse atau Disclaimer tergantung pervasivitas.</li>
+<li>Poin integratif: ketiga topik saling berkaitan dalam satu kasus nyata yang realistis.</li>
+</ul></div></div></div>
+
+<div class="sc"><div class="sh"><span class="sn">INT-02 <span class="diff int">Integratif</span></span><span class="st2">Revaluasi + Audit + Etika</span></div>
+<div class="sb"><div class="q">PT Industri Maju memiliki mesin Rp150M (perolehan 2019, umur 20 tahun, Rp7,5M/tahun) dengan nilai wajar 31/12/2026 Rp55M. Manajemen tidak mencatat impairment karena ingin menjaga rasio keuangan untuk keperluan negosiasi kredit bank. Auditor juga ditempatkan dalam posisi sulit — CFO menjanjikan perpanjangan kontrak audit 5 tahun jika "masalah ini tidak diungkapkan". Analisis seluruh isu: akuntansi, audit, dan etika.</div>
+<button class="tb" onclick="toggleAnswer(this)">Lihat Kunci</button>
+<div class="an"><div class="al">Framework Jawaban</div><ul>
+<li><strong>Akuntansi:</strong> NB = Rp150M − (7,5M×8) = Rp90M. NW Rp55M &lt; NB Rp90M → rugi impairment Rp35M wajib diakui di L/R (tidak ada surplus sebelumnya). PSAK 48 par.12 — kondisi negosiasi kredit bukan alasan untuk tidak catat impairment.</li>
+<li><strong>Audit:</strong> Auditor wajib menguji recoverable amount. Tidak mencatat Rp35M = salah saji material. Opini WDP minimum. Jika memengaruhi banyak pos → Adverse.</li>
+<li><strong>Etika:</strong> Tawaran perpanjangan kontrak 5 tahun = Self-Interest Threat yang sangat serius. KEPAP mengharuskan: tolak tawaran, dokumentasikan, laporkan ke Komite Audit (SA 260). Menerima tawaran = pelanggaran Integritas + Objektivitas + Perilaku Profesional.</li>
+<li>Dampak jika tidak dikoreksi: DER distorted → investor/bank tertipu → potensi fraud laporan keuangan (KUHP 263).</li>
+</ul></div></div></div>
 
 </div><!-- end #soal -->
 
+<!-- ══════════════════════ QUICK REF ══════════════════════ -->
+<div id="cheat" class="sec">
+<div class="st">⚡ Quick Reference — Baca 10 Menit Sebelum Ujian</div>
+<p style="margin-bottom:1rem;">Ringkasan ultra-padat semua rumus, standar, dan poin kunci yang paling sering muncul.</p>
+
+<div class="qr"><h4>PPN — Formula Kunci</h4><div class="qr-grid">
+<div class="qr-item"><strong>PK − PM = Kurang/Lebih Bayar</strong><br>PK biasa = 11% × harga jual<br>PK cuma-cuma = 11% × (11/12 × harga)<br>DPP impor = CIF×kurs + bea masuk</div>
+<div class="qr-item"><strong>PM Tidak Dapat Dikreditkan:</strong><br>• Kepentingan pribadi pengurus<br>• Tidak terkait kegiatan usaha<br>• Perolehan sebelum dikukuhkan PKP</div>
+<div class="qr-item"><strong>Ekspor = 0% (Pasal 7 ay.2)</strong><br>JKP LN dimanfaatkan DN = self-assessed<br>Jasa keuangan DN = dikecualikan (Pasal 4A)<br>Konsinyasi = saat terjual ke akhir</div>
+</div></div>
+
+<div class="qr"><h4>Persediaan — Poin Kritis</h4><div class="qr-grid">
+<div class="qr-item"><strong>FIFO Perpetual:</strong><br>Jual: ambil layer lama dulu<br>Retur jual: kembali @ HPP asal<br>Write-off: HPP asal → Kerugian</div>
+<div class="qr-item"><strong>Penjualan Bersih:</strong><br>= Penjualan − Retur Penjualan<br><strong>HPP Bersih:</strong><br>= HPP − HPP Retur Penjualan</div>
+<div class="qr-item"><strong>LIFO = DILARANG PSAK 14</strong><br>PSAK 202 = PSAK 14 baru<br>Identifikasi khusus: wajib untuk barang tidak dapat dipertukarkan</div>
+</div></div>
+
+<div class="qr"><h4>Audit & Opini</h4><div class="qr-grid">
+<div class="qr-item"><strong>WTP:</strong> Bebas salah saji material<br><strong>WDP:</strong> Material, tidak pervasif (SA 705 p.7)<br><strong>Adverse:</strong> Material DAN pervasif<br><strong>Disclaimer:</strong> Scope limitation pervasif</div>
+<div class="qr-item"><strong>5 Bukti Audit (SA 500):</strong><br>Fisik · Dokumenter · Konfirmasi<br>Analitis · Inquiry+Representasi</div>
+<div class="qr-item"><strong>Ancaman Independensi:</strong><br>Self-Interest → rotasi partner<br>Intimidation → laporkan ke Komite Audit<br>Self-Review → tolak jasa non-audit</div>
+</div></div>
+
+<div class="qr"><h4>AKM II — Revaluasi (PSAK 16)</h4><div class="qr-grid">
+<div class="qr-item"><strong>NW > NB:</strong> Surplus → OCI/Ekuitas<br><strong>NW &lt; NB, tidak ada surplus:</strong> Rugi → L/R (par.40)<br><strong>NW &lt; NB, ada surplus:</strong> Hapus surplus dulu, sisanya L/R</div>
+<div class="qr-item"><strong>Dep baru:</strong> NW ÷ Sisa umur<br><strong>PSAK 57 Provisi:</strong><br>Probable + dapat diestimasi → CATAT<br>Possible → ungkap CALK<br>Remote → tidak perlu</div>
+<div class="qr-item"><strong>PSAK 72 (5 langkah):</strong><br>1.Identifikasi kontrak<br>2.Identifikasi kewajiban pelaksanaan<br>3.Harga transaksi (incl. variable consid.)<br>4.Alokasi harga<br>5.Akui saat kewajiban terpenuhi</div>
+</div></div>
+
+<div class="qr"><h4>CVP & ABC</h4><div class="qr-grid">
+<div class="qr-item"><strong>BEP unit:</strong> BT ÷ CM<br><strong>Target unit:</strong> (BT + Laba) ÷ CM<br><strong>WACM:</strong> Σ(CM_i × proporsi_i)<br><strong>BEP bauran:</strong> BT ÷ WACM</div>
+<div class="qr-item"><strong>ABC Tarif:</strong> OH_aktivitas ÷ Kapasitas<br><strong>OH produk:</strong> Σ(Tarif × Konsumsi)<br>Prinsip: produk konsumsi aktivitas<br>aktivitas konsumsi sumber daya</div>
+<div class="qr-item"><strong>ABC lebih akurat karena:</strong> Hubungan kausal per aktivitas. Tradisional = satu tarif → distorsi. Undercost = kompleks/volume rendah. Overcost = sederhana/volume tinggi.</div>
+</div></div>
+
+<div class="qr"><h4>SIA & Etika</h4><div class="qr-grid">
+<div class="qr-item"><strong>Siklus Pengeluaran:</strong><br>PR → PO → RR → Invoice → AP → Bayar<br><strong>Kunci:</strong> Three-way matching + Blind receiving + Segregation of duties</div>
+<div class="qr-item"><strong>5 Prinsip KEPAP:</strong><br>Integritas · Objektivitas<br>Kompetensi · Kerahasiaan<br>Perilaku Profesional</div>
+<div class="qr-item"><strong>Sanksi fraud:</strong><br>KUHP 263: 6 tahun<br>UU Pasar Modal 90: 10 tahun<br>Korupsi: 4–20 tahun<br>Gratifikasi: 20 tahun</div>
+</div></div>
+
+<div class="hb green"><strong>Checklist Sebelum Kumpul Jawaban:</strong> ✓ Setiap klaim ada dasar hukum/PSAK-nya? ✓ Perhitungan ditampilkan langkah demi langkah? ✓ Ada kesimpulan yang menjawab langsung pertanyaan? ✓ Bahasa ilmiah (bukan sehari-hari)? ✓ Semua sub-pertanyaan dijawab?</div>
+</div>
+
+<!-- ══════════════════════ TIMER ══════════════════════ -->
+<div id="timer" class="sec">
+<div class="st">⏱ Timer Latihan Ujian</div>
+<p>Simulasikan kondisi ujian sesungguhnya. UKT umumnya 90–120 menit untuk 3–4 soal besar. Gunakan timer ini untuk melatih manajemen waktu.</p>
+
+<div class="timer-box">
+  <div class="timer-display" id="timerDisplay">00:00:00</div>
+  <div class="timer-label" id="timerLabel">Pilih durasi dan mulai</div>
+  <div class="timer-btns">
+    <button class="tbtn" onclick="setTimer(25)">25 mnt</button>
+    <button class="tbtn" onclick="setTimer(45)">45 mnt</button>
+    <button class="tbtn" onclick="setTimer(90)">90 mnt</button>
+    <button class="tbtn" onclick="setTimer(120)">120 mnt</button>
+    <button class="tbtn start" id="startBtn" onclick="toggleTimer()">▶ Mulai</button>
+    <button class="tbtn danger" onclick="resetTimer()">↺ Reset</button>
+  </div>
+</div>
+
+<div class="ct">Strategi Manajemen Waktu UKT</div>
+<div class="tw"><table>
+<tr><th>Jenis Soal</th><th>Waktu yang Disarankan</th><th>Strategi</th></tr>
+<tr><td>Soal hitungan murni (PPN, BEP, ABC)</td><td>15–25 menit/soal</td><td>Langsung ke perhitungan, tapi selalu tulis dasar hukum/formula dulu</td></tr>
+<tr><td>Soal analitis/diskusi (Audit, Etika)</td><td>20–30 menit/soal</td><td>Buat outline 3–5 poin sebelum menulis, pastikan ada referensi standar</td></tr>
+<tr><td>Soal integratif multi-topik</td><td>30–40 menit/soal</td><td>Identifikasi topik-topik yang terlibat dulu, tangani per sub-pertanyaan</td></tr>
+<tr><td>Review dan cek ulang</td><td>10–15 menit</td><td>Pastikan semua sub-pertanyaan dijawab, cek angka, tambah referensi yang kurang</td></tr>
+</table></div>
+
+<div class="hb"><strong>Tips Manajemen Waktu:</strong> (1) Baca semua soal dulu sebelum mulai menjawab. (2) Kerjakan soal termudah atau yang nilainya paling besar lebih dulu. (3) Jangan habiskan &gt;40% waktu di satu soal. (4) Jawaban tidak lengkap tapi ada dasar hukum lebih baik dari jawaban tidak ada referensi sama sekali.</div>
+</div>
+
 </main>
 
-<footer>
-  EACC4450 — Ujian Komprehensif Tertulis &nbsp;·&nbsp; S1 Akuntansi Universitas Terbuka &nbsp;·&nbsp; Berdasarkan RAT/SAT/RPS 2025
-</footer>
+<footer>EACC4450 Ujian Komprehensif Tertulis · S1 Akuntansi Universitas Terbuka · Berdasarkan RPS 2026, RAT/SAT 2025 · Panduan Belajar UAS</footer>
 
 <script>
-  function show(id, btn) {
-    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    if (btn) btn.classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+function show(id, btn) {
+  document.querySelectorAll('.sec').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nb').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if (btn) btn.classList.add('active');
+  else {
+    document.querySelectorAll('.nb').forEach(b => {
+      if (b.getAttribute('onclick') && b.getAttribute('onclick').includes("'"+id+"'")) b.classList.add('active');
+    });
   }
+  window.scrollTo({top:0,behavior:'smooth'});
+}
 
-  function toggleAnswer(btn) {
-    const answer = btn.nextElementSibling;
-    const isOpen = answer.classList.contains('open');
-    answer.classList.toggle('open', !isOpen);
-    btn.textContent = isOpen ? 'Lihat Panduan Jawaban' : 'Sembunyikan';
+function toggleAnswer(btn) {
+  const an = btn.nextElementSibling;
+  const open = an.classList.contains('open');
+  an.classList.toggle('open', !open);
+  btn.textContent = open ? 'Lihat Kunci' : 'Sembunyikan';
+}
+
+// TIMER
+let timerInterval = null;
+let totalSeconds = 0;
+let remainingSeconds = 0;
+let running = false;
+
+function setTimer(minutes) {
+  resetTimer();
+  totalSeconds = minutes * 60;
+  remainingSeconds = totalSeconds;
+  updateDisplay();
+  document.getElementById('timerLabel').textContent = 'Durasi: ' + minutes + ' menit — siap dimulai';
+}
+
+function toggleTimer() {
+  if (!totalSeconds) { setTimer(90); }
+  if (running) {
+    clearInterval(timerInterval);
+    running = false;
+    document.getElementById('startBtn').textContent = '▶ Lanjut';
+    document.getElementById('timerLabel').textContent = 'Dijeda';
+  } else {
+    running = true;
+    document.getElementById('startBtn').textContent = '⏸ Jeda';
+    document.getElementById('timerLabel').textContent = 'Berjalan...';
+    timerInterval = setInterval(() => {
+      if (remainingSeconds <= 0) {
+        clearInterval(timerInterval);
+        running = false;
+        document.getElementById('timerLabel').textContent = '⏰ WAKTU HABIS!';
+        document.getElementById('timerDisplay').style.color = '#7a1e1e';
+        document.getElementById('startBtn').textContent = '▶ Mulai';
+        return;
+      }
+      remainingSeconds--;
+      updateDisplay();
+      if (remainingSeconds === 300) document.getElementById('timerLabel').textContent = '⚠ 5 menit tersisa!';
+      if (remainingSeconds === 60) document.getElementById('timerLabel').textContent = '⚠ 1 menit tersisa!';
+    }, 1000);
   }
+}
+
+function resetTimer() {
+  clearInterval(timerInterval);
+  running = false;
+  remainingSeconds = totalSeconds;
+  document.getElementById('timerDisplay').style.color = '#1a5f5a';
+  document.getElementById('startBtn').textContent = '▶ Mulai';
+  document.getElementById('timerLabel').textContent = 'Pilih durasi dan mulai';
+  updateDisplay();
+}
+
+function updateDisplay() {
+  const h = Math.floor(remainingSeconds / 3600);
+  const m = Math.floor((remainingSeconds % 3600) / 60);
+  const s = remainingSeconds % 60;
+  document.getElementById('timerDisplay').textContent =
+    String(h).padStart(2,'0') + ':' + String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+}
 </script>
 </body>
 </html>
